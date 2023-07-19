@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: true },
+
+    typescript: {
+        strict: true,
+    },
+    
     app: {
         head: {
             title: 'Calibreon',
@@ -13,7 +18,13 @@ export default defineNuxtConfig({
                 { hid: 'description', name: 'description', content: '' },
                 { name: 'format-detection', content: 'telephone=no' },
             ],
-            link: [{ rel: 'icon', type: 'image/x-icon', href: '/public/favicon.ico' }],
+            link: [
+                {
+                    rel: 'icon',
+                    type: 'image/x-icon',
+                    href: '/public/favicon.ico',
+                },
+            ],
         },
     },
     css: [],
@@ -21,8 +32,4 @@ export default defineNuxtConfig({
     plugins: [],
 
     components: true,
-
-    typescript: {
-        strict: true,
-    },
 });
