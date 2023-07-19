@@ -1,11 +1,3 @@
 <template>
-  <h1>Test</h1>
+  <div>wefsdf</div>
 </template>
-
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'IndexPage',
-})
-</script>
