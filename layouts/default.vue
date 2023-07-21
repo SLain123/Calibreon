@@ -1,5 +1,5 @@
 <template>
-    <main-header />
+    <header-component />
     <slot />
-    <main-footer />
+    <app-footer />
 </template>
