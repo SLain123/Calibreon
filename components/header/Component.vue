@@ -2,14 +2,7 @@
     <header class="header_container">
         <wrapper-global>
             <div class="header_content">
-                <NuxtLink to="/">
-                    <img
-                        src="/img/logo.png"
-                        alt="logo"
-                        width="216"
-                        height="72"
-                    />
-                </NuxtLink>
+                <img src="/img/logo.png" alt="logo" width="216" height="72" />
 
                 <header-nav-menu />
                 <header-auth-block />

@@ -4,8 +4,9 @@ export default defineNuxtConfig({
 
     typescript: {
         strict: true,
+        typeCheck: true,
     },
-    
+
     app: {
         head: {
             title: 'Calibreon',
