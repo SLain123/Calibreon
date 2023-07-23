@@ -27,6 +27,7 @@
     &_content {
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     &_stub {

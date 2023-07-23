@@ -1,9 +1,7 @@
 <template>
-    <nav
-        class="nav_container"
-        v-for="{ id, title, href, children } of menuData"
-    >
+    <nav class="nav_container">
         <header-nav-item
+            v-for="{ id, title, href, children } of menuData"
             :key="id"
             :title="title"
             :href="href"
@@ -34,3 +32,12 @@ const menuData = [
     { id: 4, title: 'Blogs', href: '/blogs' },
 ];
 </script>
+
+<style lang="scss" scoped>
+.nav_container {
+    width: 100%;
+    margin: 0 120px;
+    display: flex;
+    justify-content: space-around;
+}
+</style>
