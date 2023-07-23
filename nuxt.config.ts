@@ -28,7 +28,7 @@ export default defineNuxtConfig({
             ],
         },
     },
-    css: [],
+    css: ['assets/styles/global.scss'],
 
     plugins: [],
 

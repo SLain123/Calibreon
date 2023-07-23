@@ -19,25 +19,28 @@ const currentRoute = computed(() => {
 const getActiveStyle = computed(
     () => currentRoute.value === props.href && 'link_active',
 );
-
 </script>
 
 <style lang="scss" scoped>
+@import 'assets/styles/variables.scss';
 .link {
-    color: #4d4d4d;
-    font-family: 'Hind Madurai';
+    color: $m-black;
+    font-family: $hind;
+    font-weight: 400;
     font-size: 20px;
     text-decoration: none;
     padding: 16px 12px 7px 12px;
     transition: 0.1s ease-in-out;
 
     &:hover {
-        border-bottom: 4px solid #f05b25;
+        border-bottom: 4px solid $m-orange;
         padding-bottom: 3px;
     }
 
     &_active {
         font-weight: 600;
+        border-bottom: 4px solid $m-orange;
+        padding-bottom: 3px;
     }
 }
 </style>

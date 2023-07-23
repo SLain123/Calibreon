@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: light;
+    font-weight: 300;
+    src: local('Montserrat-Light'),
+        url('../fonts/Montserrat-Light.woff2') format('woff2'),
+        url('../fonts/Montserrat-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: Regular;
+    font-weight: 400;
+    src: local('Montserrat-Regular'),
+        url('../fonts/Montserrat-Regular.woff2') format('woff2'),
+        url('../fonts/Montserrat-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: Medium;
+    font-weight: 500;
+    src: local('Montserrat-Medium'),
+        url('../fonts/Montserrat-Medium.woff2') format('woff2'),
+        url('../fonts/Montserrat-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: Bold;
+    font-weight: 700;
+    src: local('Montserrat-Bold'),
+        url('../fonts/Montserrat-Bold.woff2') format('woff2'),
+        url('../fonts/Montserrat-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: ExtraBold;
+    font-weight: 800;
+    src: local('Montserrat-ExtraBold'),
+        url('../fonts/Montserrat-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Montserrat-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: Black;
+    font-weight: 900;
+    src: local('Montserrat-ExtraBold'),
+        url('../fonts/Montserrat-Black.woff2') format('woff2'),
+        url('../fonts/Montserrat-Black.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Hind Madurai';
+    font-style: Regular;
+    font-weight: 400;
+    src: local('Hind-Madurai-Regular'),
+        url('../fonts/HindMadurai-Regular.woff2') format('woff2'),
+        url('../fonts/HindMadurai-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Hind Madurai';
+    font-style: Medium;
+    font-weight: 500;
+    src: local('Hind-Madurai-Medium'),
+        url('../fonts/HindMadurai-Medium.woff2') format('woff2'),
+        url('../fonts/HindMadurai-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Hind Madurai';
+    font-style: SemiBold;
+    font-weight: 600;
+    src: local('Hind-Madurai-HindMadurai-SemiBold'),
+        url('../fonts/HindMadurai-SemiBold.woff2') format('woff2'),
+        url('../fonts/HindMadurai-SemiBold.woff') format('woff');
+}
