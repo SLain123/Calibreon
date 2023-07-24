@@ -1,15 +1,3 @@
-<template>
-    <nav class="nav_container">
-        <header-nav-item
-            v-for="{ id, title, href, children } of menuData"
-            :key="id"
-            :title="title"
-            :href="href"
-            :children="children"
-        />
-    </nav>
-</template>
-
 <script setup>
 const menuData = [
     {
@@ -17,13 +5,13 @@ const menuData = [
         title: 'Services',
         href: '/services',
         children: [
-            { id: 10, title: 'Accounting', href: '/service/accouting' },
-            { id: 11, title: 'E-commerce', href: '/service/commerce' },
-            { id: 12, title: 'Animation', href: '/service/animation' },
-            { id: 13, title: 'Film & TV', href: '/service/film' },
-            { id: 14, title: 'Web development', href: '/service/web-dev' },
-            { id: 15, title: 'Human Resources', href: '/service/human-resc' },
-            { id: 16, title: 'Architecture', href: '/service/arch' },
+            { id: 10, title: 'Accounting', href: '/services/accouting' },
+            { id: 11, title: 'E-commerce', href: '/services/commerce' },
+            { id: 12, title: 'Animation', href: '/services/animation' },
+            { id: 13, title: 'Film & TV', href: '/services/film' },
+            { id: 14, title: 'Web development', href: '/services/web-dev' },
+            { id: 15, title: 'Human Resources', href: '/services/human-resc' },
+            { id: 16, title: 'Architecture', href: '/services/arch' },
         ],
     },
     { id: 1, title: 'About us', href: '/about' },
@@ -32,6 +20,19 @@ const menuData = [
     { id: 4, title: 'Blogs', href: '/blogs' },
 ];
 </script>
+
+<template>
+    <nav class="nav_container">
+        <header-nav-item
+            v-for="{ id, title, href, children } of menuData"
+            :key="id"
+            :id="id"
+            :title="title"
+            :href="href"
+            :children="children"
+        />
+    </nav>
+</template>
 
 <style lang="scss" scoped>
 .nav_container {
