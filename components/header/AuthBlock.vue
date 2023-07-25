@@ -1,3 +1,61 @@
+<script setup>
+import { useAuthStore } from '@/stores/auth';
+
+const authStore = useAuthStore();
+const onLogin = () => authStore.changeAuthStatus(true);
+const onLogout = () => authStore.changeAuthStatus(false);
+</script>
+
 <template>
-    <div class="auth_btn_block"></div>
+    <div v-if="authStore.isAuth" class="auth_btn_block">
+        <button type="button" class="auth_orange_btn">Contact Us</button>
+        <button type="button" class="auth_white_btn" @click="onLogout">
+            Logout
+        </button>
+    </div>
+    <div v-if="!authStore.isAuth" class="auth_btn_block">
+        <button type="button" class="auth_orange_btn" @click="onLogin">
+            Login
+        </button>
+        <button type="button" class="auth_white_btn">Signup</button>
+    </div>
 </template>
+
+<style lang="scss" scoped>
+@import 'assets/styles/variables.scss';
+.auth {
+    &_btn_block {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &_btn {
+        border-radius: 4px;
+        padding: 8px 24px;
+        border: none;
+        min-width: 100px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &_orange_btn {
+        @extend .auth_btn;
+        background-color: $m-orange;
+        color: white;
+        margin-right: 8px;
+        opacity: 0.9;
+        white-space: nowrap;
+    }
+
+    &_white_btn {
+        @extend .auth_btn;
+        background-color: white;
+        color: $m-orange;
+        border: 1px solid $m-orange;
+        opacity: 0.8;
+    }
+}
+</style>

@@ -32,5 +32,7 @@ export default defineNuxtConfig({
 
     plugins: [],
 
+    modules: ['@pinia/nuxt'],
+
     components: true,
 });
