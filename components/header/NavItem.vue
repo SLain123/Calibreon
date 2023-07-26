@@ -44,6 +44,7 @@ const hideDropList = () => (dropListState.value = false);
 
 <style lang="scss" scoped>
 @import 'assets/styles/variables.scss';
+
 .link {
     &_container {
         position: relative;
@@ -57,6 +58,7 @@ const hideDropList = () => (dropListState.value = false);
         font-size: 20px;
         text-decoration: none;
         padding: 16px 12px 7px 12px;
+        white-space: nowrap;
 
         &:hover {
             border-bottom: 4px solid $m-orange;

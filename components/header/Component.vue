@@ -1,18 +1,20 @@
+<script setup></script>
+
 <template>
     <header class="header_container">
         <wrapper-global>
             <div class="header_content">
                 <img src="/img/logo.png" alt="logo" width="216" height="72" />
 
-                <header-nav-menu />
-                <header-auth-block />
+                <header-nav-menu v-if="$isDesktop()" />
+                <header-auth-block v-if="$isDesktop()" />
+
+                <header-mobile-menu v-if="!$isDesktop()" />
             </div>
         </wrapper-global>
     </header>
     <div class="header_stub" />
 </template>
-
-<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
 .header {

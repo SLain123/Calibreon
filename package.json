@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
+    "mobile-detect": "^1.4.5",
     "pinia": "^2.1.4"
   }
 }

@@ -35,10 +35,19 @@ const menuData = [
 </template>
 
 <style lang="scss" scoped>
+@import 'assets/styles/mixin.scss';
 .nav_container {
     width: 100%;
     margin: 0 120px;
     display: flex;
     justify-content: space-around;
+
+    @include adaptive('desk') {
+        margin: 0 64px;
+    }
+
+    @include adaptive('tab-l') {
+        margin: 0 32px;
+    }
 }
 </style>
