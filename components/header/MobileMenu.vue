@@ -1,7 +1,9 @@
-<script setup>
-const props = defineProps({
-    menu: Array,
-});
+<script setup lang="ts">
+import { MenuType } from './Component.vue';
+
+defineProps<{
+    menu: MenuType[];
+}>();
 
 const route = useRoute();
 const routeObj = reactive({ route });

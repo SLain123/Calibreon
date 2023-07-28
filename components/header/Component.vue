@@ -1,5 +1,12 @@
-<script setup>
-const menuData = [
+<script setup lang="ts">
+export type MenuType = {
+    id: number;
+    title: string;
+    href: string;
+    children?: MenuType[];
+};
+
+const menu: MenuType[] = [
     {
         id: 0,
         title: 'Services',
@@ -25,11 +32,11 @@ const menuData = [
     <header class="header_container">
         <wrapper-global>
             <div class="header_content">
-                <header-mobile-menu v-if="!$isDesktop()" :menu="menuData" />
+                <header-mobile-menu v-if="!$isDesktop()" :menu="menu" />
 
                 <img src="/img/logo.png" alt="logo" width="216" height="72" />
 
-                <header-nav-menu v-if="$isDesktop()" :menu="menuData" />
+                <header-nav-menu v-if="$isDesktop()" :menu="menu" />
                 <header-auth-block v-if="$isDesktop()" />
             </div>
         </wrapper-global>
