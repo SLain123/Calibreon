@@ -26,6 +26,12 @@ const menu: MenuType[] = [
     { id: 3, title: 'Team', href: '/team' },
     { id: 4, title: 'Blogs', href: '/blogs' },
 ];
+
+const regWindowState = useState('register-window-status', () => false);
+const loginWindowState = useState('login-window-status', () => false);
+
+const changeRegStatus = (stat: boolean) => (regWindowState.value = stat);
+const changeLoginStatus = (stat: boolean) => (loginWindowState.value = stat);
 </script>
 
 <template>
@@ -37,11 +43,27 @@ const menu: MenuType[] = [
                 <img src="/img/logo.png" alt="logo" width="216" height="72" />
 
                 <header-nav-menu v-if="$isDesktop()" :menu="menu" />
-                <header-auth-block v-if="$isDesktop()" />
+                <header-auth-block
+                    v-if="$isDesktop()"
+                    @openReg="changeRegStatus(true)"
+                    @openLogin="changeLoginStatus(true)"
+                />
             </div>
         </wrapper-global>
     </header>
     <div class="header_stub" />
+
+    <pop-up :isOpen="regWindowState" withLogo @close="changeRegStatus(false)">
+        <div>Register</div>
+    </pop-up>
+
+    <pop-up
+        :isOpen="loginWindowState"
+        withLogo
+        @close="changeLoginStatus(false)"
+    >
+        <div>Login</div>
+    </pop-up>
 </template>
 
 <style lang="scss" scoped>

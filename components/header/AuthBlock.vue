@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth';
 
+const emit = defineEmits<{
+    (e: 'open-reg'): void;
+    (e: 'open-login'): void;
+}>();
+
 const authStore = useAuthStore();
-const onLogin = () => authStore.changeAuthStatus(true);
 const onLogout = () => authStore.changeAuthStatus(false);
 </script>
 
@@ -14,10 +18,16 @@ const onLogout = () => authStore.changeAuthStatus(false);
         </button>
     </div>
     <div v-if="!authStore.isAuth" class="auth_btn_block">
-        <button type="button" class="auth_orange_btn" @click="onLogin">
+        <button
+            type="button"
+            class="auth_orange_btn"
+            @click="emit('open-login')"
+        >
             Login
         </button>
-        <button type="button" class="auth_white_btn">Signup</button>
+        <button type="button" class="auth_white_btn" @click="emit('open-reg')">
+            Signup
+        </button>
     </div>
 </template>
 
