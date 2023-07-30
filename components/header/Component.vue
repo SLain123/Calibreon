@@ -38,7 +38,12 @@ const changeLoginStatus = (stat: boolean) => (loginWindowState.value = stat);
     <header class="header_container">
         <wrapper-global>
             <div class="header_content">
-                <header-mobile-menu v-if="!$isDesktop()" :menu="menu" />
+                <header-mobile-menu
+                    v-if="!$isDesktop()"
+                    :menu="menu"
+                    @openReg="changeRegStatus(true)"
+                    @openLogin="changeLoginStatus(true)"
+                />
 
                 <img src="/img/logo.png" alt="logo" width="216" height="72" />
 

@@ -33,10 +33,15 @@ const onLogout = () => authStore.changeAuthStatus(false);
 
 <style lang="scss" scoped>
 @import 'assets/styles/variables.scss';
+@import 'assets/styles/mixin.scss';
 .auth {
     &_btn_block {
         display: flex;
         justify-content: space-between;
+
+        @include adaptive('tab-l') {
+            margin-bottom: 32px;
+        }
     }
 
     &_btn {
