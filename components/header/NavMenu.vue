@@ -23,7 +23,7 @@ defineProps<{
 @import 'assets/styles/mixin.scss';
 .nav_container {
     width: 100%;
-    margin: 0 120px;
+    margin: 0 64px;
     display: flex;
     justify-content: space-around;
 

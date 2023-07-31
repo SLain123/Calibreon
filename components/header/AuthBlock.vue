@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAuthStore } from '@/stores/auth';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 const emit = defineEmits<{
     (e: 'open-reg'): void;
@@ -11,13 +11,21 @@ const onLogout = () => authStore.changeAuthStatus(false);
 </script>
 
 <template>
-    <div v-if="authStore.isAuth" class="auth_btn_block">
+    <div
+        v-if="authStore.isAuth"
+        class="auth_btn_block"
+        :class="{ auth_mobile: !$isDesktop() }"
+    >
         <button type="button" class="auth_orange_btn">Contact Us</button>
         <button type="button" class="auth_white_btn" @click="onLogout">
             Logout
         </button>
     </div>
-    <div v-if="!authStore.isAuth" class="auth_btn_block">
+    <div
+        v-if="!authStore.isAuth"
+        class="auth_btn_block"
+        :class="{ auth_mobile: !$isDesktop() }"
+    >
         <button
             type="button"
             class="auth_orange_btn"
@@ -38,10 +46,6 @@ const onLogout = () => authStore.changeAuthStatus(false);
     &_btn_block {
         display: flex;
         justify-content: space-between;
-
-        @include adaptive('tab-l') {
-            margin-bottom: 32px;
-        }
     }
 
     &_btn {
@@ -71,6 +75,10 @@ const onLogout = () => authStore.changeAuthStatus(false);
         color: $m-orange;
         border: 1px solid $m-orange;
         opacity: 0.8;
+    }
+
+    &_mobile {
+        margin-bottom: 32px;
     }
 }
 </style>

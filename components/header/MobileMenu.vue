@@ -49,6 +49,7 @@ watch(mobileMenuState, (isOpen) => {
                 <div
                     v-for="{ id, title, href, children } of menu"
                     class="link_block"
+                    :key="id"
                 >
                     <NuxtLink
                         :key="id"
