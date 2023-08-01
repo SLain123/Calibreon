@@ -43,8 +43,8 @@ watch(mobileMenuState, (isOpen) => {
         <div class="menu_sidebar">
             <div class="menu_contant">
                 <header-auth-block
-                    @openReg="emit('open-reg')"
-                    @openLogin="emit('open-login')"
+                    @open-reg="emit('open-reg')"
+                    @open-login="emit('open-login')"
                 />
                 <div
                     v-for="{ id, title, href, children } of menu"

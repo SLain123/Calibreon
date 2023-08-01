@@ -11,6 +11,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@types/node": "^18.16.19",
+    "@types/vuelidate": "^0.7.18",
     "nuxt": "^3.6.3",
     "sass": "^1.64.0",
     "typescript": "^5.1.6"
@@ -20,6 +21,8 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.3",
     "mobile-detect": "^1.4.5",
     "pinia": "^2.1.4"
   }

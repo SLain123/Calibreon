@@ -41,8 +41,8 @@ const changeLoginStatus = (stat: boolean) => (loginWindowState.value = stat);
                 <header-mobile-menu
                     v-if="!$isDesktop()"
                     :menu="menu"
-                    @openReg="changeRegStatus(true)"
-                    @openLogin="changeLoginStatus(true)"
+                    @open-reg="changeRegStatus(true)"
+                    @open-login="changeLoginStatus(true)"
                 />
 
                 <img src="/img/logo.png" alt="logo" width="216" height="72" />
@@ -50,8 +50,8 @@ const changeLoginStatus = (stat: boolean) => (loginWindowState.value = stat);
                 <header-nav-menu v-if="$isDesktop()" :menu="menu" />
                 <header-auth-block
                     v-if="$isDesktop()"
-                    @openReg="changeRegStatus(true)"
-                    @openLogin="changeLoginStatus(true)"
+                    @open-reg="changeRegStatus(true)"
+                    @open-login="changeLoginStatus(true)"
                 />
             </div>
         </wrapper-global>
