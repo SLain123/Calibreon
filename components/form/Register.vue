@@ -5,17 +5,22 @@ type FormStateType = {
     firstName: string;
     lastName: string;
     email: string;
+    terms: boolean;
 };
 
 const formState: FormStateType = reactive({
     firstName: '',
     lastName: '',
     email: '',
+    terms: false,
 });
 const rules = {
     firstName: { required, minLength: minLength(2) },
     lastName: { required, minLength: minLength(2) },
     email: { required, email },
+    terms: {
+        checked: (val: boolean) => val,
+    },
 };
 
 const v$ = useVuelidate(rules, formState);
@@ -57,6 +62,15 @@ const sendForm = () => {
             errorMessage="This required field must contain valid email addr"
         />
 
+        <ui-checkbox
+            name="terms"
+            text="By signing up, I agree to the terms of service and privacy policy."
+            v-model="formState.terms"
+            @change="v$.terms.$touch"
+            :error="v$.terms.$error"
+            exClass="form_checkbox"
+        />
+       
         <ui-submit-button text="Create Account" />
     </form>
 </template>
@@ -67,13 +81,15 @@ const sendForm = () => {
         display: flex;
         justify-content: space-between;
         gap: 42px;
-        max-width: 560px;
     }
 
     &_email {
-        max-width: 560px;
         box-sizing: border-box;
         margin-top: 32px;
+    }
+
+    &_checkbox {
+        margin: 36px 0;
     }
 }
 </style>

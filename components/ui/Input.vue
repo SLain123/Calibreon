@@ -32,7 +32,7 @@ const updateInput = (evt: Event) => {
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import 'assets/styles/variables.scss';
 
 .input {
@@ -44,14 +44,12 @@ const updateInput = (evt: Event) => {
         border: none;
         border-bottom: 2px solid $form-grey;
         padding: 20px 8px;
-        font-family: 'Montserrat';
         font-size: 20px;
         outline: none;
         width: 100%;
 
         &::placeholder {
             color: $form-grey;
-            font-family: 'Montserrat';
             font-size: 20px;
             font-weight: 400;
         }

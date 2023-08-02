@@ -42,6 +42,7 @@ const emit = defineEmits<{
         left: 50%;
         transform: translate(-50%, -50%);
         min-width: 300px;
+        max-width: 640px;
         padding: 64px;
         background-color: white;
         border-radius: 32px;
