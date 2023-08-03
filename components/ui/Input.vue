@@ -5,6 +5,7 @@ defineProps<{
     exClass?: string;
     error?: boolean;
     errorMessage?: string;
+    type?: 'text' | 'password';
 }>();
 
 const emit = defineEmits<{
@@ -25,6 +26,7 @@ const updateInput = (evt: Event) => {
             :placeholder="placeholder"
             :value="modelValue"
             @input="updateInput"
+            :type="type ?? 'text'"
         />
         <span v-if="error && errorMessage" class="error_message">{{
             errorMessage

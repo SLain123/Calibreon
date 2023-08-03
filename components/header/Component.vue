@@ -59,7 +59,7 @@ const changeLoginStatus = (stat: boolean) => (loginWindowState.value = stat);
     <div class="header_stub" />
 
     <ui-popup :isOpen="regWindowState" withLogo @close="changeRegStatus(false)">
-        <form-register />
+        <form-register @close="changeRegStatus(false)" />
     </ui-popup>
 
     <ui-popup
