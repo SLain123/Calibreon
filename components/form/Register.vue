@@ -2,7 +2,7 @@
 import { useVuelidate } from '@vuelidate/core';
 import { email, required, minLength, maxLength } from '@vuelidate/validators';
 import { useMutation } from '@tanstack/vue-query';
-import { makeRegister } from '../../services/auth/register';
+import { makeRegister } from '@/services/auth/registration';
 
 type FormStateType = {
     firstName: string;
@@ -16,8 +16,8 @@ type FormStateType = {
 enum Messages {
     name = 'This required field must contain at least 2 chars',
     email = 'This required field must contain valid email addr',
-    password = 'This required field must contain the same value as password field',
-    repeat = 'This required field must fill from 2 to 20 chars',
+    password = 'This required field must fill from 6 to 20 chars',
+    repeat = 'This required field must contain the same value as password field',
     term = 'By signing up, I agree to the terms of service and privacy policy.',
 }
 
@@ -48,7 +48,7 @@ const rules = {
 };
 
 const v$ = useVuelidate(rules, formState);
-const { data, isLoading, mutateAsync } = useMutation({
+const { data, isLoading, error, mutateAsync } = useMutation({
     mutationFn: () =>
         makeRegister(
             formState.email,
@@ -59,7 +59,7 @@ const { data, isLoading, mutateAsync } = useMutation({
 
 const sendForm = async () => {
     await mutateAsync();
-    data.value.message &&
+    data?.value?.message &&
         setTimeout(() => {
             emit('close');
         }, 2000);
@@ -144,6 +144,8 @@ const sendForm = async () => {
                     {{ err.msg }}
                 </span>
             </div>
+
+            <span v-if="error" class="form_error_message">{{ error }}</span>
 
             <span class="form_result_message" v-if="data?.message">
                 {{ data.message }}

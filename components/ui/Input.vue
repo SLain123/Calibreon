@@ -70,6 +70,7 @@ const updateInput = (evt: Event) => {
 
     &_message {
         color: $m-red;
+        display: flex;
     }
 }
 </style>

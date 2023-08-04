@@ -14,6 +14,9 @@ export const makeRegister = async (
         },
     );
 
-    
+    if (response.status === 404 || response.status === 500) {
+        throw new Error('Something was wrong. Check internet connection');
+    }
+
     return response.json();
 };
