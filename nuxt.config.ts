@@ -2,6 +2,12 @@
 export default defineNuxtConfig({
     devtools: { enabled: true },
 
+    runtimeConfig: {
+        public: {
+          baseUrl: process.env.NUXT_ENV_BASE_URL,
+        }
+      },
+
     typescript: {
         strict: true,
         typeCheck: true,

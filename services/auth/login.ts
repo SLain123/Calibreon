@@ -4,8 +4,10 @@ export const makeLogin = async (
     email: string,
     password: string,
 ): Promise<LoginResponseType> => {
+    const config = useRuntimeConfig();
+
     const response = await fetch(
-        'https://pink-fantastic-turtle.cyclic.app/api/auth/login',
+        `${config.public.baseUrl}/api/auth/login`,
         {
             method: 'POST',
             body: JSON.stringify({ email, password }),
