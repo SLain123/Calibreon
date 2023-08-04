@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useVuelidate } from '@vuelidate/core';
 import { email, required, minLength, maxLength } from '@vuelidate/validators';
+import { useMutation } from '@tanstack/vue-query';
+import { makeRegister } from '../../services/auth/register';
 
 type FormStateType = {
     firstName: string;
@@ -10,6 +12,14 @@ type FormStateType = {
     repeatPassword: string;
     terms: boolean;
 };
+
+enum Messages {
+    name = 'This required field must contain at least 2 chars',
+    email = 'This required field must contain valid email addr',
+    password = 'This required field must contain the same value as password field',
+    repeat = 'This required field must fill from 2 to 20 chars',
+    term = 'By signing up, I agree to the terms of service and privacy policy.',
+}
 
 const emit = defineEmits<{
     (e: 'close'): void;
@@ -38,23 +48,30 @@ const rules = {
 };
 
 const v$ = useVuelidate(rules, formState);
+const { data, isLoading, mutateAsync } = useMutation({
+    mutationFn: () =>
+        makeRegister(
+            formState.email,
+            formState.password,
+            `${formState.firstName} ${formState.lastName}/${+new Date()}`,
+        ),
+});
 
-const sendForm = () => {
-    const registerData = {
-        email: formState.email,
-        password: formState.password,
-        nickName: `${formState.firstName} ${formState.lastName}/${+new Date()}`,
-    };
-
-    console.log(registerData);
-    emit('close');
+const sendForm = async () => {
+    await mutateAsync();
+    data.value.message &&
+        setTimeout(() => {
+            emit('close');
+        }, 2000);
 };
 </script>
 
 <template>
     <form
         @submit.prevent="
-            v$.$validate().then((isValid) => isValid && sendForm())
+            v$.$validate().then((isValid) => {
+                isValid && sendForm();
+            })
         "
     >
         <div class="form_row_block">
@@ -63,14 +80,16 @@ const sendForm = () => {
                 v-model="formState.firstName"
                 @blur="v$.firstName.$touch"
                 :error="v$.firstName.$error"
-                errorMessage="This required field must contain at least 2 chars"
+                :errorMessage="Messages.name"
+                :disabled="isLoading"
             />
             <ui-input
                 placeholder="Last Name"
                 v-model="formState.lastName"
                 @blur="v$.lastName.$touch"
                 :error="v$.lastName.$error"
-                errorMessage="This required field must contain at least 2 chars"
+                :errorMessage="Messages.name"
+                :disabled="isLoading"
             />
         </div>
 
@@ -80,7 +99,8 @@ const sendForm = () => {
             v-model="formState.email"
             @blur="v$.email.$touch"
             :error="v$.email.$error"
-            errorMessage="This required field must contain valid email addr"
+            :errorMessage="Messages.email"
+            :disabled="isLoading"
         />
 
         <div class="form_row_block">
@@ -89,33 +109,53 @@ const sendForm = () => {
                 v-model="formState.password"
                 @blur="v$.password.$touch"
                 :error="v$.password.$error"
-                errorMessage="This required field must fill from 2 to 20 chars"
+                :errorMessage="Messages.password"
                 type="password"
+                :disabled="isLoading"
             />
             <ui-input
                 placeholder="Repeat Password"
                 v-model="formState.repeatPassword"
                 @blur="v$.repeatPassword.$touch"
                 :error="v$.repeatPassword.$error"
-                errorMessage="This required field must contain the same value as password field"
+                :errorMessage="Messages.repeat"
                 type="password"
+                :disabled="isLoading"
             />
         </div>
 
         <ui-checkbox
             name="terms"
-            text="By signing up, I agree to the terms of service and privacy policy."
+            :text="Messages.term"
             v-model="formState.terms"
             @change="v$.terms.$touch"
             :error="v$.terms.$error"
             exClass="form_checkbox"
+            :disabled="isLoading"
         />
 
-        <ui-submit-button text="Create Account" />
+        <div class="form_result_block">
+            <div v-if="data?.errors?.length" class="form_error_block">
+                <span
+                    v-for="err of data?.errors"
+                    :key="err.msg"
+                    class="form_error_message"
+                >
+                    {{ err.msg }}
+                </span>
+            </div>
+
+            <span class="form_result_message" v-if="data?.message">
+                {{ data.message }}
+            </span>
+        </div>
+
+        <ui-submit-button text="Create Account" :loading="isLoading" />
     </form>
 </template>
 
 <style lang="scss" scoped>
+@import 'assets/styles/variables.scss';
 .form {
     &_row_block {
         display: flex;
@@ -130,6 +170,23 @@ const sendForm = () => {
 
     &_checkbox {
         margin: 36px 0;
+    }
+
+    &_result {
+        &_block {
+            display: flex;
+            justify-content: center;
+        }
+
+        &_message {
+            color: $m-black;
+        }
+    }
+
+    &_error {
+        &_message {
+            color: $m-red;
+        }
     }
 }
 </style>

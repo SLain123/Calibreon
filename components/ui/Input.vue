@@ -6,6 +6,7 @@ defineProps<{
     error?: boolean;
     errorMessage?: string;
     type?: 'text' | 'password';
+    disabled?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -27,6 +28,7 @@ const updateInput = (evt: Event) => {
             :value="modelValue"
             @input="updateInput"
             :type="type ?? 'text'"
+            :disabled="disabled"
         />
         <span v-if="error && errorMessage" class="error_message">{{
             errorMessage

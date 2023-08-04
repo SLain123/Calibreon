@@ -5,6 +5,7 @@ defineProps<{
     text: string;
     exClass?: string;
     error?: boolean;
+    disabled?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -26,6 +27,7 @@ const updateCheckbox = (evt: Event) => {
             :value="modelValue"
             @input="updateCheckbox"
             :id="name"
+            :disabled="disabled"
         />
         <label :for="name">{{ text }}</label>
     </div>
@@ -72,6 +74,13 @@ const updateCheckbox = (evt: Event) => {
         border-color: $m-orange;
         background-color: $m-orange;
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+    }
+
+    &:disabled + label::before,
+    &:disabled + label {
+        opacity: 0.5;
+        color: $form-grey;
+        border-color: $form-grey;
     }
 }
 

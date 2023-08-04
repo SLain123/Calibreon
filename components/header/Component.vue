@@ -33,7 +33,6 @@ const loginWindowState = useState('login-window-status', () => false);
 const changeRegStatus = (stat: boolean) => (regWindowState.value = stat);
 const changeLoginStatus = (stat: boolean) => (loginWindowState.value = stat);
 </script>
-
 <template>
     <header class="header_container">
         <wrapper-global>
