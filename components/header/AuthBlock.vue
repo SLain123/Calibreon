@@ -7,7 +7,12 @@ const emit = defineEmits<{
 }>();
 
 const authStore = useAuthStore();
-const onLogout = () => authStore.changeAuthStatus(false);
+const storedToken = useCookie('token');
+
+const onLogout = () => {
+    authStore.changeAuthStatus(false);
+    storedToken.value = null;
+};
 </script>
 
 <template>

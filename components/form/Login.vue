@@ -32,16 +32,16 @@ const v$ = useVuelidate(rules, formState);
 const authStore = useAuthStore();
 const storedToken = useCookie('token', { maxAge: 1814400 }); //3 weeks;
 const { data, isLoading, error, mutateAsync } = useMutation({
+    mutationKey: ['login'],
     mutationFn: () => makeLogin(formState.email, formState.password),
 });
 
 const sendForm = async () => {
     await mutateAsync();
 
-    if (data?.value?.token && data?.value?.userId) {
+    if (data?.value?.token) {
         storedToken.value = data.value.token;
         authStore.changeAuthStatus(true);
-        authStore.changeUserId(data.value.userId);
 
         setTimeout(() => {
             emit('close');

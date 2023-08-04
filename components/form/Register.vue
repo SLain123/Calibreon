@@ -49,6 +49,7 @@ const rules = {
 
 const v$ = useVuelidate(rules, formState);
 const { data, isLoading, error, mutateAsync } = useMutation({
+    mutationKey: ['reg'],
     mutationFn: () =>
         makeRegister(
             formState.email,

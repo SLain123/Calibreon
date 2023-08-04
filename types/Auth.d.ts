@@ -9,3 +9,8 @@ export type LoginResponseType = {
     errors?: { msg: string; param: string; location: string }[];
     message?: string;
 };
+
+export type CheckTokenResponseType = {
+    validate?: boolean;
+    message: string;
+}
