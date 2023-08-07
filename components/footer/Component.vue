@@ -18,8 +18,9 @@ import { footerData } from '@/assets/data/layoutData';
                 <img
                     src="/img/logo-white.png"
                     alt="logo"
-                    width="310"
-                    height="104"
+                    width="300"
+                    height="100"
+                    class="footer_logo"
                 />
 
                 <div class="footer_end_row">
@@ -47,6 +48,18 @@ import { footerData } from '@/assets/data/layoutData';
         display: flex;
         justify-content: space-between;
         margin-bottom: 24px;
+
+        @include adaptive('tab') {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &_logo {
+        @include adaptive('tab') {
+            display: block;
+            margin: 0 auto;
+        }
     }
 
     &_end_row {
@@ -56,6 +69,7 @@ import { footerData } from '@/assets/data/layoutData';
         font-size: 16px;
         font-weight: 500;
         text-transform: capitalize;
+        text-align: center;
     }
 }
 </style>

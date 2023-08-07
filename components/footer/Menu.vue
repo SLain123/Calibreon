@@ -60,10 +60,16 @@ defineProps<{ footerData: FooterMenuType }>();
 </template>
 
 <style lang="scss" scoped>
+@import 'assets/styles/mixin.scss';
+
 .menu {
     &_container {
         display: flex;
         gap: 40px;
+
+        @include adaptive('mob-l') {
+            flex-direction: column;
+        }
     }
 
     &_title {
@@ -71,6 +77,10 @@ defineProps<{ footerData: FooterMenuType }>();
         font-weight: 700;
         text-transform: capitalize;
         margin-bottom: 12px;
+
+        @include adaptive('mob-l') {
+            text-align: center;
+        }
     }
 
     &_column {
@@ -90,10 +100,13 @@ defineProps<{ footerData: FooterMenuType }>();
         text-decoration: none;
         color: white;
         margin-bottom: 12px;
-        opacity: 0.9;
 
         &:hover {
-            opacity: 1;
+            opacity: 0.9;
+        }
+
+        @include adaptive('mob-l') {
+            text-align: center;
         }
     }
 
@@ -101,7 +114,7 @@ defineProps<{ footerData: FooterMenuType }>();
         @extend .menu_link;
 
         &:hover {
-            opacity: 0.9;
+            opacity: 1;
         }
     }
 }

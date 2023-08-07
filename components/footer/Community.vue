@@ -41,6 +41,10 @@
 
 <style lang="scss" scoped>
 .community {
+    &_container {
+        margin-bottom: 32px;
+    }
+
     &_title {
         font-size: 26px;
         font-weight: 700;
