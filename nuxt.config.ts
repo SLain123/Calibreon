@@ -4,9 +4,9 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
         public: {
-          baseUrl: process.env.NUXT_ENV_BASE_URL,
-        }
-      },
+            baseUrl: process.env.NUXT_ENV_BASE_URL,
+        },
+    },
 
     typescript: {
         strict: true,
@@ -38,7 +38,7 @@ export default defineNuxtConfig({
 
     plugins: [],
 
-    modules: ['@pinia/nuxt'],
+    modules: ['@pinia/nuxt', 'nuxt-icons'],
 
     components: true,
 });

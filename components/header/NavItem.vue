@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuType } from './Component.vue';
+import { MenuType } from '@/types/Menu';
 
 const props = defineProps<{
     id: number;

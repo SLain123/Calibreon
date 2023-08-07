@@ -7,8 +7,12 @@ import { footerData } from '@/assets/data/layoutData';
         <wrapper-global>
             <div class="footer_contant">
                 <div class="footer_first_row">
-                    <div class="footer_community_block">Community</div>
-                    <div class="footer_menu_block">Menu</div>
+                    <div class="footer_community_block">
+                        <footer-community />
+                    </div>
+                    <div class="footer_menu_block">
+                        <footer-menu :footerData="footerData" />
+                    </div>
                 </div>
 
                 <img
@@ -19,8 +23,8 @@ import { footerData } from '@/assets/data/layoutData';
                 />
 
                 <div class="footer_end_row">
-                    © 2023 CALIBREON INTERNATIONAL. ALL RIGHTS RESERVED.
-                    DESIGNED BY Ariyan Arman, DEVELOPMENT Lamzov Artem
+                    © 2023 CALIBREON INTL. ALL RIGHTS RESERVED. DESIGNED BY
+                    Ariyan Arman, DEVELOPMENT BY Lamzov Artem
                 </div>
             </div>
         </wrapper-global>

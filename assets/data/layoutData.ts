@@ -1,4 +1,4 @@
-import { MenuType } from 'types/Menu';
+import { MenuType, FooterMenuType } from 'types/Menu';
 
 export const menu: MenuType[] = [
     {
@@ -21,7 +21,7 @@ export const menu: MenuType[] = [
     { id: 4, title: 'Blogs', href: '/blogs' },
 ];
 
-export const footerData = {
+export const footerData: FooterMenuType = {
     menu,
     uLinks: [
         { id: 100, title: 'Terms of Service', href: '#' },
@@ -29,8 +29,11 @@ export const footerData = {
         { id: 102, title: 'FAQ', href: '#' },
     ],
     contacts: {
-        email: { text: 'Contact@Test.Io', value: 'contact@test.io' },
-        addr: { text: 'Xyz, Block / Street', value: 'https://google.com' },
+        email: { text: 'Contact@Test.Io', value: 'sl163@yandex.ru' },
+        addr: {
+            text: 'Xyz, Block / Street',
+            value: 'https://maps.google.com?saddr=Current+Location&daddr=43.12345,-76.12345',
+        },
         area: 'Area xyz',
         city: 'City xyz',
     },
