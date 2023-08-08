@@ -1,3 +1,4 @@
 <template>
-  <div>Index</div>
+    <home-first-screen-component />
+    <home-our-services-component />
 </template>
