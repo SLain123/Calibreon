@@ -54,6 +54,7 @@ const changeLoginState = (stat: boolean) => (loginWindowState.value = stat);
         width: 100%;
         padding: 12px 0;
         background-color: rgba(255, 255, 255, 0.9);
+        z-index: 2;
     }
     &_content {
         display: flex;

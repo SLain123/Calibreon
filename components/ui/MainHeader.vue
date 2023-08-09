@@ -14,14 +14,21 @@ withDefaults(
 
 <style lang="scss" scoped>
 @import 'assets/styles/variables.scss';
+@import 'assets/styles/mixin.scss';
 
 .header {
-    font-size: 39px;
+    font-size: 38px;
     font-style: normal;
     font-weight: 700;
     padding: 0 32px 0 4px;
     border-bottom: 3px solid $m-orange;
     display: inline-block;
+    white-space: nowrap;
+
+    @include adaptive('mob-l') {
+        font-size: 34px;
+        padding-right: 8px;
+    }
 }
 
 .orange {

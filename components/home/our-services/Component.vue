@@ -19,8 +19,28 @@ import 'swiper/css/navigation';
             </div>
 
             <swiper
-                :slides-per-view="1.6"
-                :space-between="42"
+                :breakpoints="{
+                    320: {
+                        spaceBetween: 4,
+                        slidesPerView: 1.1,
+                    },
+                    375: {
+                        spaceBetween: 16,
+                        slidesPerView: 1.3,
+                    },
+                    768: {
+                        spaceBetween: 16,
+                        slidesPerView: 1.1,
+                    },
+                    1024: {
+                        spaceBetween: 32,
+                        slidesPerView: 1.3,
+                    },
+                    1280: {
+                        spaceBetween: 42,
+                        slidesPerView: 1.6,
+                    },
+                }"
                 :modules="[Navigation]"
                 :navigation="{
                     nextEl: '.o_service_btn_next',
@@ -85,6 +105,7 @@ import 'swiper/css/navigation';
 
 <style lang="scss" scoped>
 @import 'assets/styles/variables.scss';
+@import 'assets/styles/mixin.scss';
 
 .o_service {
     &_container {
@@ -97,18 +118,37 @@ import 'swiper/css/navigation';
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @include adaptive('mob-l') {
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 80px;
+        }
     }
 
     &_swiper {
         position: relative;
         left: 0;
         width: calc(113.5%);
+
+        @include adaptive('desk') {
+            width: calc(100% + 32px);
+        }
+
+        @include adaptive('tab-l') {
+            width: calc(100% + 24px);
+        }
     }
 
     &_control_block {
         margin-top: 76px;
         display: flex;
         justify-content: flex-end;
+
+        @include adaptive('mob-l') {
+            margin-top: 4px;
+        }
     }
 
     &_btn_prev,

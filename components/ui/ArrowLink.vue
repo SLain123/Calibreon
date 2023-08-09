@@ -18,6 +18,7 @@ withDefaults(
 
 <style lang="scss" scoped>
 @import 'assets/styles/variables.scss';
+@import 'assets/styles/mixin.scss';
 
 .link {
     text-decoration: none;
@@ -26,6 +27,10 @@ withDefaults(
     &:hover {
         opacity: 0.9;
     }
+
+    @include adaptive('mob-l') {
+        width: 100%;
+    }
 }
 
 .text {
@@ -33,6 +38,7 @@ withDefaults(
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 .black {
