@@ -1,15 +1,10 @@
 <script lang="ts" setup>
-withDefaults(
-    defineProps<{
-        id: number;
-        imgSrc: string;
-        title: string;
-        descList: string[];
-        bgColor?: string;
-        mode?: 'left' | 'right';
-    }>(),
-    { bgColor: '#4d4d4d', mode: 'left' },
-);
+import { CardServiceType, CardServiceMode } from '@/types/Cards';
+
+withDefaults(defineProps<CardServiceType>(), {
+    bgColor: '#4d4d4d',
+    mode: CardServiceMode.left,
+});
 </script>
 
 <template>

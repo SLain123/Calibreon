@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { footerData } from '@/assets/data/layoutData';
+import { footerData } from '@/assets/data/layout';
 </script>
 
 <template>

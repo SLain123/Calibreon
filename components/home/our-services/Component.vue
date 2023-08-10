@@ -4,6 +4,8 @@ import { Navigation } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+
+import { servicesData } from '@/assets/data/home';
 </script>
 
 <template>
@@ -48,49 +50,24 @@ import 'swiper/css/navigation';
                 }"
                 class="o_service_swiper"
             >
-                <swiper-slide>
+                <swiper-slide
+                    v-for="{
+                        id,
+                        imgSrc,
+                        title,
+                        bgColor,
+                        mode,
+                        descList,
+                    } of servicesData"
+                    :key="id"
+                >
                     <card-service
-                        :id="0"
-                        imgSrc="assets/img/service-1.png"
-                        title="Accounting"
-                        bgColor="#62C"
-                        mode="left"
-                        :descList="[
-                            'Bookeeping',
-                            'Accounting',
-                            'Bookeeping',
-                            'Accounting',
-                        ]"
-                    />
-                </swiper-slide>
-                <swiper-slide>
-                    <card-service
-                        :id="1"
-                        imgSrc="assets/img/service-2.png"
-                        title="Film & TV"
-                        bgColor="#282828"
-                        mode="right"
-                        :descList="[
-                            'Short films',
-                            'Advertisments',
-                            'Photography',
-                            'Editing',
-                        ]"
-                    />
-                </swiper-slide>
-                <swiper-slide>
-                    <card-service
-                        :id="2"
-                        imgSrc="assets/img/service-3.png"
-                        title="Architecture"
-                        bgColor="#7D1128"
-                        mode="left"
-                        :descList="[
-                            'Bookeeping',
-                            'Accounting',
-                            'Bookeeping',
-                            'Accounting',
-                        ]"
+                        :id="id"
+                        :imgSrc="imgSrc"
+                        :title="title"
+                        :bgColor="bgColor"
+                        :mode="mode"
+                        :descList="descList"
                     />
                 </swiper-slide>
             </swiper>

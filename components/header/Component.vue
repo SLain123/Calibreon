@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { menu } from '@/assets/data/layoutData';
+import { menuData } from '@/assets/data/layout';
 
 useCheckToken();
 const regWindowState = useState('register-window-status', () => false);
@@ -14,14 +14,14 @@ const changeLoginState = (stat: boolean) => (loginWindowState.value = stat);
             <div class="header_content">
                 <header-mobile-menu
                     v-if="!$isDesktop()"
-                    :menu="menu"
+                    :menu="menuData"
                     @open-reg="changeRegState(true)"
                     @open-login="changeLoginState(true)"
                 />
 
                 <img src="/img/logo.png" alt="logo" width="216" height="72" />
 
-                <header-nav-menu v-if="$isDesktop()" :menu="menu" />
+                <header-nav-menu v-if="$isDesktop()" :menu="menuData" />
                 <header-auth-block
                     v-if="$isDesktop()"
                     @open-reg="changeRegState(true)"

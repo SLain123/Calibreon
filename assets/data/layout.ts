@@ -1,6 +1,6 @@
 import { MenuType, FooterMenuType } from 'types/Menu';
 
-export const menu: MenuType[] = [
+export const menuData: MenuType[] = [
     {
         id: 0,
         title: 'Services',
@@ -22,7 +22,7 @@ export const menu: MenuType[] = [
 ];
 
 export const footerData: FooterMenuType = {
-    menu,
+    menu: menuData,
     uLinks: [
         { id: 100, title: 'Terms of Service', href: '#' },
         { id: 101, title: 'Privacy Policy', href: '#' },
