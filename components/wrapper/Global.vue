@@ -5,7 +5,7 @@
 <style lang="scss" scoped>
 @import 'assets/styles/mixin.scss';
 .wrapper_global {
-    max-width: 1278px;
+    max-width: 1440px;
     padding: 0 81px;
     margin: 0 auto;
 

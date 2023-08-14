@@ -107,7 +107,7 @@ import { servicesData } from '@/assets/data/home';
     &_swiper {
         position: relative;
         left: 0;
-        width: calc(113.5%);
+        width: calc(106%);
 
         @include adaptive('desk') {
             width: calc(100% + 32px);
