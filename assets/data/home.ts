@@ -1,5 +1,7 @@
 import { CardServiceType, CardServiceMode, CardWorldType } from '@/types/Cards';
 
+export type BrandDataType = { id: number; src: string; alt: string };
+
 export const servicesData: CardServiceType[] = [
     {
         id: 0,
@@ -42,5 +44,19 @@ export const worldData: CardWorldType[] = [
         id: 2,
         text: 'He did a great job and work well with teams. He communicates well.Would highly recommended.',
         brandImgSrc: 'assets/img/brands/brand-3.png',
+    },
+];
+
+export const brandData: BrandDataType[] = [
+    { id: 0, src: 'assets/img/brands/brand-1.png', alt: 'Our brand REBORN' },
+    {
+        id: 1,
+        src: 'assets/img/brands/brand-2.png',
+        alt: 'Our brand INSIGHT SOFT',
+    },
+    {
+        id: 2,
+        src: 'assets/img/brands/brand-3.png',
+        alt: 'Our brand BENITAGO GROP',
     },
 ];

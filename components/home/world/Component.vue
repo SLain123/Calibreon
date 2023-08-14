@@ -34,7 +34,11 @@ import { worldData } from '@/assets/data/home';
 
 .world {
     &_container {
-        margin: 120px 0;
+        margin: 112px 0;
+
+        @include adaptive('mob-l') {
+            margin: 64px 0;
+        }
     }
 
     &_title {
