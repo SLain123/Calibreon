@@ -41,7 +41,7 @@ import { footerData } from '@/assets/data/layout';
         padding: 84px 0 32px 0;
         background-color: $m-black;
         color: white;
-        margin-top: 64px;
+        margin-top: 16px;
     }
 
     &_first_row {

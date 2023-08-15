@@ -75,6 +75,7 @@ const sendForm = (reset: () => void) => {
                     alt="news"
                     :width="629"
                     :height="347"
+                    class="news_img"
                 />
             </div>
         </wrapper-global>
@@ -87,10 +88,19 @@ const sendForm = (reset: () => void) => {
 .news {
     &_container {
         margin: 112px 0;
+
+        @include adaptive('mob-l') {
+            margin: 64px 0;
+        }
     }
 
     &_content {
         display: flex;
+        align-items: center;
+
+        @include adaptive('tab') {
+            flex-direction: column;
+        }
     }
 
     &_info {
@@ -99,17 +109,40 @@ const sendForm = (reset: () => void) => {
             flex-direction: column;
             width: 60%;
             margin-right: 24px;
+
+            @include adaptive('tab') {
+                width: 90%;
+                margin-bottom: 36px;
+                margin-right: 0;
+            }
+
+            @include adaptive('mob-l') {
+                width: 100%;
+            }
         }
 
         &_title {
             width: 75%;
             margin-bottom: 16px;
 
+            @include adaptive('tab-l') {
+                width: 90%;
+            }
+
+            @include adaptive('tab') {
+                width: 100%;
+            }
+
             & span {
                 font-size: 64px;
                 font-weight: 700;
                 line-height: 57px;
                 color: $m-black;
+
+                @include adaptive('mob-l') {
+                    font-size: 46px;
+                    line-height: 38px;
+                }
             }
         }
 
@@ -120,6 +153,14 @@ const sendForm = (reset: () => void) => {
             font-weight: 500;
             width: 75%;
             margin-bottom: 16px;
+
+            @include adaptive('tab-l') {
+                width: 90%;
+            }
+
+            @include adaptive('tab') {
+                width: 100%;
+            }
         }
     }
 
@@ -127,16 +168,42 @@ const sendForm = (reset: () => void) => {
         &_block {
             display: flex;
             align-items: center;
+
+            @include adaptive('mob-l') {
+                flex-direction: column;
+            }
         }
 
         &_input_wrap {
             margin-right: 24px;
+
+            @include adaptive('mob-l') {
+                margin-right: 0;
+            }
         }
 
         &_btn {
             margin: 0;
             padding: 8px 42px;
             align-self: flex-start;
+
+            @include adaptive('mob-l') {
+                margin-top: 24px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    &_img {
+        @include adaptive('tab-l') {
+            width: 429px;
+            height: auto;
+        }
+
+        @include adaptive('tab') {
+            width: 90%;
         }
     }
 }
