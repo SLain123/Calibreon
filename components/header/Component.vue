@@ -19,7 +19,13 @@ const changeLoginState = (stat: boolean) => (loginWindowState.value = stat);
                     @open-login="changeLoginState(true)"
                 />
 
-                <img src="/img/logo.png" alt="logo" width="216" height="72" />
+                <img
+                    src="/img/logo.png"
+                    alt="logo"
+                    width="216"
+                    height="72"
+                    class="header_logo"
+                />
 
                 <header-nav-menu v-if="$isDesktop()" :menu="menuData" />
                 <header-auth-block
@@ -46,6 +52,8 @@ const changeLoginState = (stat: boolean) => (loginWindowState.value = stat);
 </template>
 
 <style lang="scss" scoped>
+@import 'assets/styles/mixin.scss';
+
 .header {
     &_container {
         position: fixed;
@@ -56,10 +64,18 @@ const changeLoginState = (stat: boolean) => (loginWindowState.value = stat);
         background-color: rgba(255, 255, 255, 0.9);
         z-index: 2;
     }
+
     &_content {
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    &_logo {
+        @include adaptive('tab-l') {
+            width: 156px;
+            height: 48px;
+        }
     }
 
     &_stub {
