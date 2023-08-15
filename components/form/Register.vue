@@ -153,11 +153,11 @@ const sendForm = async () => {
             </span>
         </div>
 
-        <ui-submit-button text="Create Account" :loading="isLoading" />
+        <ui-button text="Create Account" :loading="isLoading" />
     </form>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import 'assets/styles/variables.scss';
 .form {
     &_row_block {

@@ -3,7 +3,6 @@ defineProps<{
     name: string;
     modelValue: boolean;
     text: string;
-    exClass?: string;
     error?: boolean;
     disabled?: boolean;
 }>();
@@ -19,7 +18,7 @@ const updateCheckbox = (evt: Event) => {
 </script>
 
 <template>
-    <div class="checkbox_container" :class="exClass">
+    <div class="checkbox_container">
         <input
             class="checkbox"
             :class="{ error }"

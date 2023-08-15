@@ -33,6 +33,7 @@ const emit = defineEmits<{
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9;
 }
 
 .modal {
@@ -46,6 +47,7 @@ const emit = defineEmits<{
         padding: 64px;
         background-color: white;
         border-radius: 32px;
+        z-index: 10;
     }
 
     &_logo {

@@ -96,7 +96,7 @@ const sendForm = async () => {
             </span>
         </div>
 
-        <ui-submit-button text="Login" :loading="isLoading" />
+        <ui-button text="Login" :loading="isLoading" />
     </form>
 </template>
 

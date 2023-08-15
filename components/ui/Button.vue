@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import SpinnerLoader from 'vue-spinner/src/clipLoader.vue';
 
-defineProps<{ text: string; loading?: boolean }>();
+withDefaults(
+    defineProps<{
+        text: string;
+        loading?: boolean;
+        type?: 'submit' | 'button';
+    }>(),
+    { type: 'submit', loading: false },
+);
 </script>
 
 <template>
-    <button class="btn" :disabled="loading">
+    <button class="btn" :disabled="loading" :type="type">
         <spinner-loader
             class="spinner"
             :loading="loading"

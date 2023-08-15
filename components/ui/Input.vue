@@ -1,13 +1,18 @@
 <script setup lang="ts">
-defineProps<{
-    modelValue: string;
-    placeholder?: string;
-    exClass?: string;
-    error?: boolean;
-    errorMessage?: string;
-    type?: 'text' | 'password';
-    disabled?: boolean;
-}>();
+import { StyleValue } from 'vue';
+
+withDefaults(
+    defineProps<{
+        modelValue: string;
+        placeholder?: string;
+        inputStyle?: StyleValue;
+        error?: boolean;
+        errorMessage?: string;
+        type?: 'text' | 'password';
+        disabled?: boolean;
+    }>(),
+    { type: 'text' },
+);
 
 const emit = defineEmits<{
     (e: 'update:modelValue', value: string): void;
@@ -20,14 +25,14 @@ const updateInput = (evt: Event) => {
 </script>
 
 <template>
-    <div class="input_container" :class="{ exClass }">
+    <div class="input_container">
         <input
             class="input_string"
-            :class="{ error }"
+            :style="inputStyle"
             :placeholder="placeholder"
             :value="modelValue"
             @input="updateInput"
-            :type="type ?? 'text'"
+            :type="type"
             :disabled="disabled"
         />
         <span v-if="error && errorMessage" class="error_message">{{
