@@ -38,7 +38,7 @@ export default defineNuxtConfig({
 
     plugins: [],
 
-    modules: ['@pinia/nuxt', 'nuxt-icons'],
+    modules: ['@pinia/nuxt', 'nuxt-icon'],
 
     components: true,
 });

@@ -2,6 +2,8 @@
 import { useVuelidate } from '@vuelidate/core';
 import { email, required, minLength, maxLength } from '@vuelidate/validators';
 
+import { ToastType } from '@/components/ui/Toast.vue';
+
 type FormStateType = {
     email: string;
 };
@@ -15,6 +17,7 @@ const inputStyle = {
     'border-color': '#f05b25',
 };
 
+const toast = ref<ToastType | null>(null);
 const formState: FormStateType = reactive({
     email: '',
 });
@@ -25,7 +28,7 @@ const rules = {
 const v$ = useVuelidate(rules, formState);
 
 const sendForm = (reset: () => void) => {
-    console.log(formState.email);
+    toast?.value && toast.value.setVisible(3);
     formState.email = '';
     reset();
 };
@@ -80,6 +83,8 @@ const sendForm = (reset: () => void) => {
             </div>
         </wrapper-global>
     </div>
+
+    <ui-toast message="Subscription Successfully Registered" ref="toast" />
 </template>
 
 <style lang="scss" scoped>

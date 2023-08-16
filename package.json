@@ -13,6 +13,7 @@
     "@types/node": "^18.16.19",
     "@types/vuelidate": "^0.7.18",
     "nuxt": "^3.6.3",
+    "nuxt-icon": "^0.5.0",
     "sass": "^1.64.0",
     "typescript": "^5.1.6"
   },
@@ -25,7 +26,6 @@
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.3",
     "mobile-detect": "^1.4.5",
-    "nuxt-icons": "^3.2.1",
     "pinia": "^2.1.4",
     "swiper": "^10.1.0",
     "vue-query": "^1.26.0",
