@@ -17,16 +17,20 @@ defineExpose<ToastType>({
 </script>
 
 <template>
-    <div v-if="isVisible" class="toast_container">
-        <p class="toast_message">{{ message }}</p>
-        <button
-            type="button"
-            class="toast_close_btn"
-            @click="isVisible = false"
-        >
-            <Icon name="ci:close-lg" color="#f05b25" />
-        </button>
-    </div>
+    <Teleport to="body">
+        <Transition>
+            <div v-if="isVisible" class="toast_container">
+                <p class="toast_message">{{ message }}</p>
+                <button
+                    type="button"
+                    class="toast_close_btn"
+                    @click="isVisible = false"
+                >
+                    <Icon name="ci:close-lg" color="#f05b25" />
+                </button>
+            </div>
+        </Transition>
+    </Teleport>
 </template>
 
 <style lang="scss" scoped>
@@ -69,5 +73,15 @@ defineExpose<ToastType>({
             opacity: 0.9;
         }
     }
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
 }
 </style>

@@ -6,6 +6,10 @@
     font-weight: 400;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 @font-face {
     font-family: 'Montserrat';
     font-style: light;

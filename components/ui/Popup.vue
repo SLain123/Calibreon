@@ -1,28 +1,48 @@
 <script setup lang="ts">
+export type PopupType = {
+    open: () => void;
+    close: () => void;
+};
+
+const isOpen = ref(false);
+
 defineProps<{
-    isOpen: boolean;
     withLogo?: boolean;
 }>();
 
-const emit = defineEmits<{
-    (e: 'close'): void;
-}>();
+const open = () => {
+    document.body.classList.add('modal-open');
+    isOpen.value = true;
+};
+const close = () => {
+    isOpen.value = false;
+    document.body.classList.remove('modal-open');
+};
+
+defineExpose<PopupType>({
+    open,
+    close,
+});
 </script>
 
 <template>
-    <div class="layout" v-if="isOpen" @click.self="emit('close')">
-        <div class="modal_window">
-            <img
-                v-if="withLogo"
-                src="/img/logo.png"
-                alt="logo"
-                width="265"
-                height="88"
-                class="modal_logo"
-            />
-            <slot />
-        </div>
-    </div>
+    <Teleport to="body">
+        <Transition>
+            <div class="layout" v-if="isOpen" @click.self="close">
+                <div class="modal_window">
+                    <img
+                        v-if="withLogo"
+                        src="/img/logo.png"
+                        alt="logo"
+                        width="265"
+                        height="88"
+                        class="modal_logo"
+                    />
+                    <slot />
+                </div>
+            </div>
+        </Transition>
+    </Teleport>
 </template>
 
 <style lang="scss" scoped>
@@ -54,5 +74,15 @@ const emit = defineEmits<{
         margin: 0 auto 32px auto;
         display: block;
     }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

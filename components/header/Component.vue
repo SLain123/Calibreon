@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { menuData } from '@/assets/data/layout';
+import { PopupType } from '@/components/ui/Popup.vue';
+
+const regPopup = ref<PopupType | null>(null);
+const loginPopup = ref<PopupType | null>(null);
 
 useCheckToken();
-const regWindowState = useState('register-window-status', () => false);
-const loginWindowState = useState('login-window-status', () => false);
-
-const changeRegState = (stat: boolean) => (regWindowState.value = stat);
-const changeLoginState = (stat: boolean) => (loginWindowState.value = stat);
 </script>
 <template>
     <header class="header_container">
@@ -15,8 +14,8 @@ const changeLoginState = (stat: boolean) => (loginWindowState.value = stat);
                 <header-mobile-menu
                     v-if="!$isDesktop()"
                     :menu="menuData"
-                    @open-reg="changeRegState(true)"
-                    @open-login="changeLoginState(true)"
+                    @open-reg="regPopup?.open"
+                    @open-login="loginPopup?.open"
                 />
 
                 <img
@@ -30,24 +29,20 @@ const changeLoginState = (stat: boolean) => (loginWindowState.value = stat);
                 <header-nav-menu v-if="$isDesktop()" :menu="menuData" />
                 <header-auth-block
                     v-if="$isDesktop()"
-                    @open-reg="changeRegState(true)"
-                    @open-login="changeLoginState(true)"
+                    @open-reg="regPopup?.open"
+                    @open-login="loginPopup?.open"
                 />
             </div>
         </wrapper-global>
     </header>
     <div class="header_stub" />
 
-    <ui-popup :isOpen="regWindowState" withLogo @close="changeRegState(false)">
-        <form-register @close="changeRegState(false)" />
+    <ui-popup ref="regPopup" withLogo>
+        <form-register @close="regPopup?.close" />
     </ui-popup>
 
-    <ui-popup
-        :isOpen="loginWindowState"
-        withLogo
-        @close="changeLoginState(false)"
-    >
-        <form-login @close="changeLoginState(false)" />
+    <ui-popup ref="loginPopup" withLogo>
+        <form-login @close="loginPopup?.close" />
     </ui-popup>
 </template>
 
