@@ -17,3 +17,12 @@ export type CardWorldType = {
     text: string;
     brandImgSrc: string;
 };
+
+export type CardBlogType = {
+    id: number;
+    logo: string;
+    title: string;
+    author: string;
+    text: string;
+    isOpen?: boolean;
+};

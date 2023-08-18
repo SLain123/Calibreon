@@ -3,13 +3,20 @@ withDefaults(
     defineProps<{
         color?: 'orange' | 'white';
         text: string;
+        underlineLenght: number;
     }>(),
-    { color: 'orange' },
+    { color: 'orange', underlineLenght: 40 },
 );
 </script>
 
 <template>
-    <h2 class="header" :class="color">{{ text }}</h2>
+    <h2
+        class="header"
+        :style="{ paddingRight: `${underlineLenght}px` }"
+        :class="color"
+    >
+        {{ text }}
+    </h2>
 </template>
 
 <style lang="scss" scoped>
@@ -20,7 +27,7 @@ withDefaults(
     font-size: 38px;
     font-style: normal;
     font-weight: 700;
-    padding: 0 32px 0 4px;
+    padding: 0 0 0 4px;
     border-bottom: 3px solid $m-orange;
     display: inline-block;
     white-space: nowrap;
