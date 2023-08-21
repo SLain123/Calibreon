@@ -6,7 +6,13 @@ defineProps<CardTeamType>();
 <template>
     <div class="t_card_container">
         <div class="t_card_head">
-            <img :src="photo" :alt="name" :width="162" :height="162" />
+            <img
+                :src="photo"
+                :alt="name"
+                :width="162"
+                :height="162"
+                class="t_card_photo"
+            />
             <div class="t_card_info_block">
                 <p class="t_card_name">{{ name }}</p>
                 <div v-if="certified?.length" class="t_card_certifaed_block">
@@ -34,6 +40,10 @@ defineProps<CardTeamType>();
         background-color: $m-black;
         padding: 24px;
         border-radius: 20px;
+
+        @include adaptive('mob-m') {
+            padding: 16px;
+        }
     }
 
     &_head {
@@ -46,6 +56,22 @@ defineProps<CardTeamType>();
         margin-left: 16px;
         display: flex;
         flex-direction: column;
+
+        @include adaptive('mob-m') {
+            margin-top: 0;
+        }
+    }
+
+    &_photo {
+        @include adaptive('tab') {
+            width: 120px;
+            height: 120px;
+        }
+
+        @include adaptive('mob-m') {
+            width: 80px;
+            height: 80px;
+        }
     }
 
     &_name {
@@ -54,6 +80,16 @@ defineProps<CardTeamType>();
         line-height: 68px;
         letter-spacing: -1.06px;
         color: white;
+
+        @include adaptive('desk') {
+            font-size: 36px;
+            line-height: 56px;
+        }
+
+        @include adaptive('tab') {
+            font-size: 32px;
+            line-height: 52px;
+        }
     }
 
     &_certifaed {

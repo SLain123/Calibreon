@@ -1,19 +1,23 @@
 <script setup lang="ts">
 import { TeamCardBlockType } from '@/types/Cards';
 
-defineProps<TeamCardBlockType>();
+const props = defineProps<TeamCardBlockType>();
 
 const isOpen = ref(false);
 
-const moreBtnText = computed(() => (isOpen ? 'View all' : 'Hide all'));
+const moreBtnText = computed(() => (isOpen.value ? 'Hide all' : 'View all'));
+const computedStaffList = computed(() =>
+    isOpen.value ? props.staff : props.staff.slice(0, 3),
+);
 
-const toggleMore = () => (isOpen.value = !isOpen);
+const toggleMore = () => (isOpen.value = !isOpen.value);
 </script>
 
 <template>
     <div class="t_card_block_container">
         <div class="t_card_block_head">
             <h3 class="t_card_block_title">{{ title }}</h3>
+
             <button
                 type="button"
                 class="t_card_block_more_btn"
@@ -24,15 +28,23 @@ const toggleMore = () => (isOpen.value = !isOpen);
         </div>
 
         <div class="t_card_block_content">
-            <card-team
-                v-for="{ id, photo, name, certified, desc } of staff"
-                :key="id"
-                :id="id"
-                :photo="photo"
-                :name="name"
-                :certified="certified"
-                :desc="desc"
-            />
+            <transition-group name="cards">
+                <card-team
+                    v-for="{
+                        id,
+                        photo,
+                        name,
+                        certified,
+                        desc,
+                    } of computedStaffList"
+                    :key="id"
+                    :id="id"
+                    :photo="photo"
+                    :name="name"
+                    :certified="certified"
+                    :desc="desc"
+                />
+            </transition-group>
         </div>
     </div>
 </template>
@@ -66,6 +78,10 @@ const toggleMore = () => (isOpen.value = !isOpen);
         background-color: transparent;
         cursor: pointer;
 
+        @include adaptive('mob-l') {
+            display: none;
+        }
+
         &:hover {
             opacity: 0.9;
         }
@@ -77,6 +93,7 @@ const toggleMore = () => (isOpen.value = !isOpen);
             font-weight: 600;
             display: flex;
             align-items: center;
+            white-space: nowrap;
 
             &:after {
                 content: '';
@@ -93,6 +110,29 @@ const toggleMore = () => (isOpen.value = !isOpen);
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 32px;
+
+        @include adaptive('tab-l') {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include adaptive('tab') {
+            grid-gap: 16px;
+        }
+
+        @include adaptive('mob-l') {
+            grid-template-columns: 1fr;
+        }
     }
+}
+
+.cards-enter-active,
+.cards-leave-active {
+    transition: all 0.5s ease;
+}
+
+.cards-enter-from,
+.cards-leave-to {
+    transform: translateY(30px);
+    opacity: 0;
 }
 </style>
