@@ -131,7 +131,7 @@ const sendForm = async () => {
             v-model="formState.terms"
             @change="v$.terms.$touch"
             :error="v$.terms.$error"
-            exClass="form_checkbox"
+            class="form_checkbox"
             :disabled="isLoading"
         />
 
@@ -159,11 +159,22 @@ const sendForm = async () => {
 
 <style lang="scss">
 @import 'assets/styles/variables.scss';
+@import 'assets/styles/mixin.scss';
+
 .form {
     &_row_block {
         display: flex;
         justify-content: space-between;
         gap: 42px;
+        min-width: 400px;
+
+        @include adaptive('tab-l') {
+            flex-direction: column;
+        }
+
+        @include adaptive('mob-l') {
+            min-width: calc(100vw - 64px);
+        }
     }
 
     &_email {

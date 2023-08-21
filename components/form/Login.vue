@@ -102,11 +102,17 @@ const sendForm = async () => {
 
 <style lang="scss" scoped>
 @import 'assets/styles/variables.scss';
+@import 'assets/styles/mixin.scss';
+
 .form {
     &_row {
         box-sizing: border-box;
         margin: 32px 0;
         min-width: 400px;
+
+        @include adaptive('mob-l') {
+            min-width: calc(100vw - 64px);
+        }
     }
 
     &_result {
