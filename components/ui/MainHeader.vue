@@ -3,7 +3,7 @@ withDefaults(
     defineProps<{
         color?: 'orange' | 'white';
         text: string;
-        underlineLenght: number;
+        underlineLenght?: number;
     }>(),
     { color: 'orange', underlineLenght: 40 },
 );
@@ -31,6 +31,7 @@ withDefaults(
     border-bottom: 3px solid $m-orange;
     display: inline-block;
     white-space: nowrap;
+    user-select: none;
 
     @include adaptive('mob-l') {
         font-size: 34px;

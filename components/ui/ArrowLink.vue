@@ -40,6 +40,7 @@ withDefaults(
     font-style: normal;
     font-weight: 600;
     white-space: nowrap;
+    user-select: none;
 }
 
 .black {

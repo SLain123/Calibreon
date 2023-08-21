@@ -26,3 +26,17 @@ export type CardBlogType = {
     text: string;
     isOpen?: boolean;
 };
+
+export type CardTeamType = {
+    id: number;
+    photo: string;
+    name: string;
+    certified?: string[];
+    desc: string;
+};
+
+export type TeamCardBlockType = {
+    id: number;
+    title: string;
+    staff: CardTeamType[];
+};
