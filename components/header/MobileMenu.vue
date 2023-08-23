@@ -58,6 +58,7 @@ watch(mobileMenuState, (isOpen) => {
                         class="link_item"
                         :class="{ link_item_active: currentUrl === href }"
                         :to="href"
+                        @click="toggleMenu"
                         >{{ title }}
                     </NuxtLink>
 
@@ -68,6 +69,7 @@ watch(mobileMenuState, (isOpen) => {
                             class="link_child"
                             :class="{ link_item_active: currentUrl === href }"
                             :to="href"
+                            @click="toggleMenu"
                             >{{ title }}
                         </NuxtLink>
                     </div>
