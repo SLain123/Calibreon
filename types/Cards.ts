@@ -27,12 +27,22 @@ export type CardBlogType = {
     isOpen?: boolean;
 };
 
+export type PersoneExperienceType = {
+    id: number;
+    post: string;
+    company: string;
+    start: string;
+    end: string;
+};
+
 export type CardTeamType = {
     id: number;
     photo: string;
     name: string;
     certified?: string[];
     desc: string;
+    skills?: { [key: string]: number };
+    experience: PersoneExperienceType[];
 };
 
 export type TeamCardBlockType = {

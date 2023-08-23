@@ -4,7 +4,7 @@ defineProps<CardTeamType>();
 </script>
 
 <template>
-    <div class="t_card_container">
+    <nuxt-link :to="`/team/${name}`" class="t_card_link_block">
         <div class="t_card_head">
             <img
                 :src="photo"
@@ -28,7 +28,7 @@ defineProps<CardTeamType>();
         </div>
 
         <p class="t_card_desc">{{ desc }}</p>
-    </div>
+    </nuxt-link>
 </template>
 
 <style lang="scss" scoped>
@@ -36,13 +36,19 @@ defineProps<CardTeamType>();
 @import 'assets/styles/mixin.scss';
 
 .t_card {
-    &_container {
+    &_link_block {
+        text-decoration: none;
+        cursor: pointer;
         background-color: $m-black;
         padding: 24px;
         border-radius: 20px;
 
         @include adaptive('mob-m') {
             padding: 16px;
+        }
+
+        &:hover {
+            background-color: $m-orange;
         }
     }
 
