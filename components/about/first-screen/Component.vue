@@ -1,49 +1,63 @@
+<script lang="ts" setup></script>
+
 <template>
-    <wrapper-global>
-        <div class="first_container">
-            <img
-                src="@/assets/img/first-preview.png"
-                alt="preview"
-                class="first_preview_img"
-            />
-            <div class="first_info_block">
-                <h2 class="first_title">
-                    <span>Grow with </span>
-                    <span class="first_orange">Calibreon International</span>
-                </h2>
-                <h3 class="first_subtitle">
-                    That thrives in the today’s digital landscape by elevating
-                    your business to new heights. So, Choose Calibreon
-                    International for premium back office support.
-                </h3>
+    <div class="first_scr_container">
+        <wrapper-global
+            ><ui-main-header text="About Us" :underlineLenght="15" />
+
+            <div class="first_scr_content">
+                <div class="first_scr_info_block">
+                    <h2 class="first_scr_title">
+                        <span>Our Mission is </span>
+                        <span class="first_scr_orange">Clear</span>
+                    </h2>
+                    <h3 class="first_scr_subtitle">
+                        At CaliberOn, we're passionate about helping our clients
+                        succeed. That's why we prioritize client satisfaction
+                        and deliver exceptional work every time with our team of
+                        professionals having access to a wide range of services,
+                        from design and development to marketing and branding.
+                    </h3>
+                </div>
+                <img
+                    src="@/assets/img/about-preview.png"
+                    alt="preview"
+                    class="first_scr_preview_img"
+                />
             </div>
-        </div>
-    </wrapper-global>
+        </wrapper-global>
+    </div>
 </template>
 
 <style lang="scss" scoped>
 @import 'assets/styles/variables.scss';
 @import 'assets/styles/mixin.scss';
 
-.first {
+.first_scr {
     &_container {
-        display: flex;
-        margin: 64px 0;
-        color: $m-black;
+        margin: 36px 0;
 
         @include adaptive('tab-l') {
-            margin: 36px 0;
+            margin: 24px 0;
         }
+
+        @include adaptive('tab') {
+            margin-top: 0px;
+        }
+    }
+
+    &_content {
+        display: flex;
+        color: $m-black;
 
         @include adaptive('mob-l') {
             flex-direction: column;
-            margin: 28px 0;
         }
     }
 
     &_preview_img {
         width: 50%;
-        max-width: 576px;
+        max-width: 535px;
 
         @include adaptive('tab-l') {
             width: 35%;
@@ -58,19 +72,19 @@
         width: 50%;
         display: flex;
         flex-direction: column;
-        margin-left: 48px;
+        margin-right: 48px;
 
         @include adaptive('tab-l') {
             width: 65%;
         }
 
         @include adaptive('tab') {
-            margin-left: 32px;
+            margin-right: 32px;
         }
 
         @include adaptive('mob-l') {
             width: 100%;
-            margin-left: 0;
+            margin-right: 0;
         }
     }
 
