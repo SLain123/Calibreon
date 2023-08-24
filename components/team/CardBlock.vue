@@ -36,6 +36,7 @@ const toggleMore = () => (isOpen.value = !isOpen.value);
                         name,
                         certified,
                         desc,
+                        experience,
                     } of computedStaffList"
                     :key="id"
                     :id="id"
@@ -43,6 +44,7 @@ const toggleMore = () => (isOpen.value = !isOpen.value);
                     :name="name"
                     :certified="certified"
                     :desc="desc"
+                    :experience="experience"
                 />
             </transition-group>
         </div>

@@ -42,7 +42,7 @@ const { name, certified, desc, skills, experience } = person;
                     <div class="person_skills_block" v-if="skills">
                         <p class="person_name">Skills</p>
                         <div v-for="(value, name) in skills" :key="name">
-                            <team-skill :title="name" :value="value" />
+                            <team-skill :title="String(name)" :value="+value" />
                         </div>
                     </div>
                     <div class="person_exp_block" v-if="experience?.length">
