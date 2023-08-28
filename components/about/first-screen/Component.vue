@@ -1,5 +1,3 @@
-<script lang="ts" setup></script>
-
 <template>
     <div class="first_scr_container">
         <wrapper-global

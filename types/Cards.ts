@@ -3,6 +3,18 @@ export enum CardServiceMode {
     'right' = 'right',
 }
 
+export enum CardFounderMode {
+    'staff' = 'staff',
+    'founder' = 'founder',
+}
+
+export enum CardFounderPosition {
+    'top' = 'top',
+    'left' = 'left',
+    'right' = 'right',
+    'bottom' = 'bottom',
+}
+
 export type CardServiceType = {
     id: number;
     imgSrc: string;
@@ -49,4 +61,14 @@ export type TeamCardBlockType = {
     id: number;
     title: string;
     staff: CardTeamType[];
+};
+
+export type FounderCardType = {
+    id: number;
+    photo: string;
+    name: string;
+    certified?: string[];
+    desc: string;
+    mode?: CardFounderMode;
+    position?: CardFounderPosition;
 };

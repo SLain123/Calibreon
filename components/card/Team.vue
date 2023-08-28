@@ -1,16 +1,29 @@
 <script setup lang="ts">
-import { CardTeamType } from '@/types/Cards';
-defineProps<CardTeamType>();
+import { FounderCardType, CardFounderMode } from '@/types/Cards';
+
+withDefaults(defineProps<FounderCardType>(), {
+    mode: CardFounderMode.staff,
+});
 </script>
 
 <template>
-    <nuxt-link :to="`/team/${name}`" class="t_card_link_block">
+    <nuxt-link
+        :to="`/team/${name}`"
+        :class="{
+            t_card_link_block: mode === 'staff',
+            t_card_link_block_founder: mode === 'founder',
+            t_card_link_block_top: position === 'top',
+            t_card_link_block_left: position === 'left',
+            t_card_link_block_right: position === 'right',
+            t_card_link_block_bottom: position === 'bottom',
+        }"
+    >
         <div class="t_card_head">
             <img
                 :src="photo"
                 :alt="name"
-                :width="162"
-                :height="162"
+                :width="142"
+                :height="142"
                 class="t_card_photo"
             />
             <div class="t_card_info_block">
@@ -49,6 +62,46 @@ defineProps<CardTeamType>();
 
         &:hover {
             background-color: $m-orange;
+        }
+
+        &_founder {
+            @extend .t_card_link_block;
+            background-color: $m-orange;
+            cursor: default;
+            position: absolute;
+            max-width: 392px;
+            min-height: 560px;
+
+            @include adaptive('tab-l') {
+                position: static;
+                min-height: 0;
+                max-width: none;
+                width: calc(50% - 12px);
+            }
+
+            @include adaptive('mob-l') {
+                width: 100%;
+            }
+        }
+
+        &_top {
+            top: 0px;
+            left: calc(50% - 196px);
+        }
+
+        &_left {
+            top: calc(50% - 320px);
+            left: 0;
+        }
+
+        &_right {
+            top: calc(50% - 320px);
+            right: 0;
+        }
+
+        &_bottom {
+            top: calc(100% - 580px);
+            left: calc(50% - 196px);
         }
     }
 
