@@ -56,6 +56,17 @@ import { CardFounderMode } from '@/types/Cards';
         font-size: 80px;
         font-weight: 900;
         line-height: 83px;
+
+        @include adaptive('mob-l') {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 58px;
+        }
+
+        @include adaptive('mob-m') {
+            font-size: 38px;
+            line-height: 48px;
+        }
     }
 
     &_title {
@@ -63,6 +74,10 @@ import { CardFounderMode } from '@/types/Cards';
         color: $m-black;
         max-width: 560px;
         margin: 120px auto;
+
+        @include adaptive('mob-l') {
+            margin: 64px auto;
+        }
     }
 
     &_orange {

@@ -22,8 +22,8 @@ withDefaults(defineProps<FounderCardType>(), {
             <img
                 :src="photo"
                 :alt="name"
-                :width="142"
-                :height="142"
+                :width="136"
+                :height="136"
                 class="t_card_photo"
             />
             <div class="t_card_info_block">
@@ -111,14 +111,9 @@ withDefaults(defineProps<FounderCardType>(), {
     }
 
     &_info_block {
-        margin-top: 24px;
         margin-left: 16px;
         display: flex;
         flex-direction: column;
-
-        @include adaptive('mob-m') {
-            margin-top: 0;
-        }
     }
 
     &_photo {
@@ -136,18 +131,19 @@ withDefaults(defineProps<FounderCardType>(), {
     &_name {
         font-size: 48px;
         font-weight: 700;
-        line-height: 68px;
+        line-height: 58px;
         letter-spacing: -1.06px;
         color: white;
+        margin-bottom: 16px;
 
         @include adaptive('desk') {
             font-size: 36px;
-            line-height: 56px;
+            line-height: 46px;
         }
 
         @include adaptive('tab') {
             font-size: 32px;
-            line-height: 52px;
+            line-height: 42px;
         }
     }
 
@@ -177,6 +173,10 @@ withDefaults(defineProps<FounderCardType>(), {
                 height: 14px;
                 margin-left: 4px;
                 background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgBhZLNS1RRGMaf894zHwrNjYaGFlqgRBEVRIvECMKF1iLEjIii7wiKQNwWJPQH1KJlEbmZRQZ9CEYKQW7ahBWJ4heOjAM6iqMzo9dz58y5zj1yR9QZfVbvec7zeznnvAcooaeTdlvjX7HQ8F/OPxkTHaUyzCvexK3z/ZbvtmnA/JxULQ7R+obj4EyljGZA4s4BfLsRCXQVwdeT2YvvUoGeZI5hJ+0hhZsR1fjsULBPt/2Z5Q92g1xlFKF3Xj1yaw0Kh0S5cJUfaApvrMMBMjXYmRDNMUmXykEfjhLe1hqoC9ram7aNhi8z1kN2ZTg3+ivNDnvBkxUKPUtUhA4GGXpnLbTFuT6qqyN+meSxbK4W8GvjZQ1QH/LhVVyidb+hob45sQnSV2MUoVOmv98z2scVplcdtFfzDWiKNkGu9nH8oWP5zN3jFc6CayQkoXVIavhTYgX3JxjSW6C9LB+7Hs5f1jNoHhSdv5eNW95mdcBBwlJQZGx7sNOV8vvXE8ELul09t9+7w/UUF6wkFCpY96p41K2LU++ak9eiha8W4oQfi+qqWh8xWCHREna6R9IyVWf6Pr6o4d0op8cjVse5Ads6+y+XahqwnpfKrAEY8bPdeGWp8gAAAABJRU5ErkJggg==');
+
+                @include adaptive('mob-l') {
+                    display: none;
+                }
             }
         }
     }
