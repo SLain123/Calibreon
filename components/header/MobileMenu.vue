@@ -36,47 +36,46 @@ watch(mobileMenuState, (isOpen) => {
         <span />
     </button>
 
-    <div
-        :class="{
-            menu_visible: mobileMenuState,
-            menu_hide: !mobileMenuState,
-        }"
-    >
-        <div class="menu_sidebar">
-            <div class="menu_contant">
-                <header-auth-block
-                    @open-reg="emit('open-reg')"
-                    @open-login="emit('open-login')"
-                />
-                <div
-                    v-for="{ id, title, href, children } of menu"
-                    class="link_block"
-                    :key="id"
-                >
-                    <NuxtLink
+    <Transition>
+        <div v-if="mobileMenuState" class="menu_container">
+            <div class="menu_sidebar">
+                <div class="menu_contant">
+                    <header-auth-block
+                        @open-reg="emit('open-reg')"
+                        @open-login="emit('open-login')"
+                    />
+                    <div
+                        v-for="{ id, title, href, children } of menu"
+                        class="link_block"
                         :key="id"
-                        class="link_item"
-                        :class="{ link_item_active: currentUrl === href }"
-                        :to="href"
-                        @click="toggleMenu"
-                        >{{ title }}
-                    </NuxtLink>
-
-                    <div v-if="children?.length" class="child_block">
+                    >
                         <NuxtLink
-                            v-for="{ id, title, href } of children"
                             :key="id"
-                            class="link_child"
+                            class="link_item"
                             :class="{ link_item_active: currentUrl === href }"
                             :to="href"
                             @click="toggleMenu"
                             >{{ title }}
                         </NuxtLink>
+
+                        <div v-if="children?.length" class="child_block">
+                            <NuxtLink
+                                v-for="{ id, title, href } of children"
+                                :key="id"
+                                class="link_child"
+                                :class="{
+                                    link_item_active: currentUrl === href,
+                                }"
+                                :to="href"
+                                @click="toggleMenu"
+                                >{{ title }}
+                            </NuxtLink>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </Transition>
 </template>
 
 <style lang="scss" scoped>
@@ -120,17 +119,6 @@ watch(mobileMenuState, (isOpen) => {
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.3);
         transition: all 0.1s ease-in-out;
-    }
-
-    &_visible {
-        @extend .menu_container;
-        z-index: 2;
-        display: block;
-    }
-
-    &_hide {
-        @extend .menu_container;
-        display: none;
     }
 
     &_sidebar {
@@ -191,5 +179,15 @@ watch(mobileMenuState, (isOpen) => {
     &:last-child {
         margin-bottom: 16px;
     }
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.15s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
 }
 </style>
