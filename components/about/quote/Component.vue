@@ -1,13 +1,10 @@
 <template>
     <wrapper-global>
         <div class="quote_container">
-            <quote class="quote_text"
-                >“Our end-to-end freelancing services are designed to help you
-                achieve your
-                <span class="quote_orange"
-                    >goals and exceed your expectations.</span
-                >”
-            </quote>
+            <blockquote class="quote_text">
+                “Our end-to-end freelancing services are designed to help you
+                achieve your <span class="quote_orange">goals and exceed your expectations.</span>”
+            </blockquote>
         </div>
     </wrapper-global>
 </template>
