@@ -8,7 +8,7 @@ withDefaults(defineProps<CardServiceType>(), {
 </script>
 
 <template>
-    <div class="serv_card_container">
+    <div class="serv_card_container" :class="mode">
         <img
             :src="imgSrc"
             :alt="`slide-${id}`"
@@ -17,7 +17,11 @@ withDefaults(defineProps<CardServiceType>(), {
             :width="360"
             :height="320"
         />
-        <div class="serv_card_info_block" :style="{ backgroundColor: bgColor }">
+        <div
+            class="serv_card_info_block"
+            :style="{ backgroundColor: bgColor }"
+            :class="mode"
+        >
             <div class="serv_card_info_content" :class="mode">
                 <h3 class="serv_card_title">{{ title }}</h3>
                 <ul class="serv_card_list">
@@ -50,6 +54,17 @@ withDefaults(defineProps<CardServiceType>(), {
         }
     }
 
+    &_container.compact {
+        width: calc(50% - 8px);
+        height: 580px;
+        margin-top: 32px;
+
+        @include adaptive('mob-l') {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+
     &_img {
         display: block;
         z-index: 1;
@@ -69,6 +84,11 @@ withDefaults(defineProps<CardServiceType>(), {
         margin-right: 24px;
     }
 
+    &_img.compact {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     &_info_block {
         width: 100%;
         position: absolute;
@@ -82,10 +102,18 @@ withDefaults(defineProps<CardServiceType>(), {
         }
     }
 
+    &_info_block.compact {
+        height: 500px;
+
+        @include adaptive('mob-l') {
+            height: 430px;
+        }
+    }
+
     &_info_content {
         position: absolute;
         top: 0;
-        padding: 32px 0;
+        padding: 32px 16px 32px 0;
 
         @include adaptive('mob-l') {
             margin-top: 200px;
@@ -99,6 +127,15 @@ withDefaults(defineProps<CardServiceType>(), {
 
     &_info_content.right {
         left: 24px;
+    }
+
+    &_info_content.compact {
+        top: 50%;
+        left: 24px;
+
+        @include adaptive('mob-l') {
+            top: 0;
+        }
     }
 
     &_title {

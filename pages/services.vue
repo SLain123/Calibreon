@@ -1,3 +1,3 @@
 <template>
-    <div>Service</div>
+    <service-component />
 </template>

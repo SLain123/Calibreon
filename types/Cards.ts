@@ -1,6 +1,7 @@
 export enum CardServiceMode {
     'left' = 'left',
     'right' = 'right',
+    'compact' = 'compact',
 }
 
 export enum CardFounderMode {
