@@ -1,14 +1,14 @@
-<script setup lang="ts">
+<script setup>
 import SpinnerLoader from 'vue-spinner/src/clipLoader.vue';
 
-withDefaults(
-    defineProps<{
-        text: string;
-        loading?: boolean;
-        type?: 'submit' | 'button';
-    }>(),
-    { type: 'submit', loading: false },
-);
+// withDefaults(
+//     defineProps<{
+//         text: string;
+//         loading?: boolean;
+//         type?: 'submit' | 'button';
+//     }>(),
+//     { type: 'submit', loading: false },
+// );
 </script>
 
 <template>
