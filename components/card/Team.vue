@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { FounderCardType, CardFounderMode } from '@/types/Cards';
 
-withDefaults(defineProps<FounderCardType>(), {
+const props = withDefaults(defineProps<FounderCardType>(), {
     mode: CardFounderMode.staff,
 });
+
+const imageUrl = new URL(props.photo, import.meta.url).href;
 </script>
 
 <template>
@@ -20,7 +22,7 @@ withDefaults(defineProps<FounderCardType>(), {
     >
         <div class="t_card_head">
             <img
-                :src="photo"
+                :src="imageUrl"
                 :alt="name"
                 :width="136"
                 :height="136"
