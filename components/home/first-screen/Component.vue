@@ -2,7 +2,7 @@
     <wrapper-global>
         <div class="first_container">
             <img
-                src="img/first-preview.png"
+                src="public/img/first-preview.png"
                 alt="preview"
                 class="first_preview_img"
             />
