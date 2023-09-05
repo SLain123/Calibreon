@@ -6,7 +6,7 @@ const props = withDefaults(defineProps<CardServiceType>(), {
     mode: CardServiceMode.left,
 });
 const imageUrl = new URL(
-    `../../assets/img/services/${props.imgSrc}`,
+    `../../public/img/services/${props.imgSrc}`,
     import.meta.url,
 ).href;
 </script>

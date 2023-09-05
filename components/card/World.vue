@@ -3,7 +3,7 @@ import { CardWorldType } from '@/types/Cards';
 
 const props = defineProps<CardWorldType>();
 const imageUrl = new URL(
-    `../../../assets/img/brands/${props.brandImgSrc}`,
+    `../../../public/img/brands/${props.brandImgSrc}`,
     import.meta.url,
 ).href;
 </script>

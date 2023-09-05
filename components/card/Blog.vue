@@ -2,7 +2,7 @@
 import { CardBlogType } from '@/types/Cards';
 
 const props = withDefaults(defineProps<CardBlogType>(), { isOpen: false });
-const imageUrl = new URL(`../../assets/img/blog/${props.logo}`, import.meta.url)
+const imageUrl = new URL(`../../public/img/blog/${props.logo}`, import.meta.url)
     .href;
 
 const isOpenText = ref(props.isOpen);
