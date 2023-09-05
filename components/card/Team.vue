@@ -5,7 +5,8 @@ const props = withDefaults(defineProps<FounderCardType>(), {
     mode: CardFounderMode.staff,
 });
 
-const imageUrl = new URL(props.photo, import.meta.url).href;
+const imageUrl = new URL('../../assets/img/staff-photo.png', import.meta.url)
+    .href;
 </script>
 
 <template>
