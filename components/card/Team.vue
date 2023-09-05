@@ -8,7 +8,7 @@ withDefaults(defineProps<FounderCardType>(), {
 
 <template>
     <nuxt-link
-        :to="`/team/${name}`"
+        :to="mode === 'staff' ? `/team/${name}` : '#'"
         :class="{
             t_card_link_block: mode === 'staff',
             t_card_link_block_founder: mode === 'founder',
