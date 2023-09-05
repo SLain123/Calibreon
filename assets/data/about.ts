@@ -1,6 +1,6 @@
 import { FounderCardType, CardFounderPosition } from '@/types/Cards';
 
-const photo = '/src/assets/img/staff-photo.png';
+const photo = 'staff-photo.png';
 const samad = {
     id: 0,
     photo,
