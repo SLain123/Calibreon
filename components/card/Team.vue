@@ -5,8 +5,10 @@ const props = withDefaults(defineProps<FounderCardType>(), {
     mode: CardFounderMode.staff,
 });
 
-const imageUrl = new URL(`../../assets/img/${props.photo}`, import.meta.url)
-    .href;
+const photoRef = ref(props.photo);
+const imageUrl = computed(
+    () => new URL(`../../assets/img/${photoRef.value}`, import.meta.url).href,
+);
 </script>
 
 <template>

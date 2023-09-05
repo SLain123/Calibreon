@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { brandData } from '@/assets/data/home';
+
+const brandList = brandData.map((brand) => ({
+    ...brand,
+    src: new URL(`../../../assets/img/brands/${brand.src}`, import.meta.url)
+        .href,
+}));
 </script>
 
 <template>
     <div class="o_brand_container">
         <img
-            v-for="{ id, src, alt } of brandData"
+            v-for="{ id, src, alt } of brandList"
             :key="id"
             :src="src"
             :alt="alt"

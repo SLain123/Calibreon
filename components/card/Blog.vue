@@ -2,6 +2,8 @@
 import { CardBlogType } from '@/types/Cards';
 
 const props = withDefaults(defineProps<CardBlogType>(), { isOpen: false });
+const imageUrl = new URL(`../../assets/img/blog/${props.logo}`, import.meta.url)
+    .href;
 
 const isOpenText = ref(props.isOpen);
 
@@ -17,7 +19,7 @@ const toggleTextStatus = () => (isOpenText.value = !isOpenText.value);
     <div class="b_card_container">
         <div class="b_card_head">
             <img
-                :src="logo"
+                :src="imageUrl"
                 :alt="`logo-${id}`"
                 :width="166"
                 :height="166"
