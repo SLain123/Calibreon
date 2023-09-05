@@ -74,7 +74,7 @@ const sendForm = (reset: () => void) => {
                 </div>
 
                 <img
-                    src="@/public/img/subscribe-preview.png"
+                    src="/img/subscribe-preview.png"
                     alt="news"
                     :width="629"
                     :height="347"

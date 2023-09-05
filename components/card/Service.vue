@@ -1,20 +1,16 @@
 <script lang="ts" setup>
 import { CardServiceType, CardServiceMode } from '@/types/Cards';
 
-const props = withDefaults(defineProps<CardServiceType>(), {
+withDefaults(defineProps<CardServiceType>(), {
     bgColor: '#4d4d4d',
     mode: CardServiceMode.left,
 });
-const imageUrl = new URL(
-    `../../public/img/services/${props.imgSrc}`,
-    import.meta.url,
-).href;
 </script>
 
 <template>
     <div class="serv_card_container" :class="mode">
         <img
-            :src="imageUrl"
+            :src="`img/services/${imgSrc}`"
             :alt="`slide-${id}`"
             class="serv_card_img"
             :class="mode"

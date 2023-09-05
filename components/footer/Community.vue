@@ -5,7 +5,7 @@
         <div class="community_link_block">
             <NuxtLink to="#" class="community_link">
                 <img
-                    src="@/public/icons/soc/insta.png"
+                    src="icons/soc/insta.png"
                     alt="instagram"
                     width="44"
                     height="44"
@@ -13,7 +13,7 @@
             </NuxtLink>
             <NuxtLink to="#" class="community_link">
                 <img
-                    src="@/public/icons/soc/twit.png"
+                    src="icons/soc/twit.png"
                     alt="twiter"
                     width="44"
                     height="40"
@@ -21,7 +21,7 @@
             </NuxtLink>
             <NuxtLink to="#" class="community_link">
                 <img
-                    src="@/public/icons/soc/face.png"
+                    src="icons/soc/face.png"
                     alt="facebook"
                     width="44"
                     height="44"
@@ -29,7 +29,7 @@
             </NuxtLink>
             <NuxtLink to="#" class="community_link">
                 <img
-                    src="@/public/icons/soc/li.png"
+                    src="icons/soc/li.png"
                     alt="linkedin"
                     width="40"
                     height="40"

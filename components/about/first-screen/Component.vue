@@ -18,7 +18,7 @@
                     </h3>
                 </div>
                 <img
-                    src="@/public/img/about-preview.png"
+                    src="img/about-preview.png"
                     alt="preview"
                     class="first_scr_preview_img"
                 />

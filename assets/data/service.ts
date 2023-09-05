@@ -3,7 +3,7 @@ import { CardServiceType, CardServiceMode, CardWorldType } from '@/types/Cards';
 export const servicesData: CardServiceType[] = [
     {
         id: 0,
-        imgSrc: 'assets/img/services/service-1.png',
+        imgSrc: 'service-1.png',
         title: 'Accounting',
         bgColor: '#62C',
         mode: CardServiceMode.left,
@@ -11,7 +11,7 @@ export const servicesData: CardServiceType[] = [
     },
     {
         id: 1,
-        imgSrc: 'assets/img/services/service-4.png',
+        imgSrc: 'service-4.png',
         title: 'Animation',
         bgColor: '#F05B25',
         mode: CardServiceMode.compact,
@@ -24,7 +24,7 @@ export const servicesData: CardServiceType[] = [
     },
     {
         id: 2,
-        imgSrc: 'assets/img/services/service-5.png',
+        imgSrc: 'service-5.png',
         title: 'E-Commerce',
         bgColor: '#17BEBB',
         mode: CardServiceMode.compact,
@@ -37,7 +37,7 @@ export const servicesData: CardServiceType[] = [
     },
     {
         id: 3,
-        imgSrc: 'assets/img/services/service-2.png',
+        imgSrc: 'service-2.png',
         title: 'Film & TV',
         bgColor: '#282828',
         mode: CardServiceMode.right,
@@ -45,7 +45,7 @@ export const servicesData: CardServiceType[] = [
     },
     {
         id: 4,
-        imgSrc: 'assets/img/services/service-6.png',
+        imgSrc: 'service-6.png',
         title: 'Web Development',
         bgColor: '#FBBC05',
         mode: CardServiceMode.compact,
@@ -58,7 +58,7 @@ export const servicesData: CardServiceType[] = [
     },
     {
         id: 5,
-        imgSrc: 'assets/img/services/service-7.png',
+        imgSrc: 'service-7.png',
         title: 'Human Resources',
         bgColor: '#0A66C2',
         mode: CardServiceMode.compact,
@@ -66,7 +66,7 @@ export const servicesData: CardServiceType[] = [
     },
     {
         id: 6,
-        imgSrc: 'assets/img/services/service-3.png',
+        imgSrc: 'service-3.png',
         title: 'Architecture',
         bgColor: '#7D1128',
         mode: CardServiceMode.left,

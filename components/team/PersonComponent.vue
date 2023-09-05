@@ -14,7 +14,7 @@ const { name, certified, desc, skills, experience } = person;
             <div class="person_exists" v-if="name">
                 <div class="person_content">
                     <img
-                        src="@/public/img/staff-photo.png"
+                        src="img/staff-photo.png"
                         :alt="name"
                         :width="306"
                         :height="306"

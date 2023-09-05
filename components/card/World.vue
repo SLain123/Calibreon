@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import { CardWorldType } from '@/types/Cards';
 
-const props = defineProps<CardWorldType>();
-const imageUrl = new URL(
-    `../../../public/img/brands/${props.brandImgSrc}`,
-    import.meta.url,
-).href;
+defineProps<CardWorldType>();
 </script>
 
 <template>
     <div class="w_card_container">
         <p class="w_card_text">{{ text }}</p>
-        <img :src="imageUrl" alt="brand" class="w_card_img" :height="26" />
+        <img
+            :src="`img/brands/${brandImgSrc}`"
+            alt="brand"
+            class="w_card_img"
+            :height="26"
+        />
     </div>
 </template>
 

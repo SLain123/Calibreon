@@ -21,7 +21,7 @@ export const servicesData: CardServiceType[] = [
     },
     {
         id: 2,
-        imgSrc: 'assets/img/services/service-3.png',
+        imgSrc: 'service-3.png',
         title: 'Architecture',
         bgColor: '#7D1128',
         mode: CardServiceMode.left,

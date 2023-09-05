@@ -1,6 +1,6 @@
 import { TeamCardBlockType, CardTeamType } from '@/types/Cards';
 
-const photo = 'assets/img/staff-photo.png';
+const photo = 'staff-photo.png';
 const desc =
     'Lorem ipsum dolor sit amet consectetur. Sem ut pellentesque aliquam eget. Purus id faucibus mollis viverra viverra odio tempus tempor ut. Amet lectus in bibendum sed.Lorem ipsum dolor sit amet consectetur. Sem ut pellentesque aliquam eget. Purus id faucibus mollis viverra viverra odio tempus tempor ut. Amet lectus in bibendum sed.Lorem ipsum dolor sit amet consectetur. Sem ut pellentesque aliquam eget. Purus id faucibus mollis viverra viverra odio tempus tempor ut. Amet lectus in bibendum sed.';
 const skilsMax = { management: 85, development: 96, communication: 64 };

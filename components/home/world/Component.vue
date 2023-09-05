@@ -73,7 +73,7 @@ import { worldData } from '@/assets/data/home';
     &_map {
         &_block {
             padding: 16px 0;
-            background-image: url('@/public/img/orange-map.png');
+            background-image: url('img/orange-map.png');
             background-repeat: no-repeat;
             background-size: contain;
             background-position-x: right;
